@@ -1,0 +1,78 @@
+.image-slider-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+.image-slider-div {
+  margin-top: 16px;
+  position: relative;
+  aspect-ratio: 16/9;
+  width: 100%;
+  overflow: hidden;
+}
+.image-slide {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 24px;
+}
+.slider-button {
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 48%;
+  aspect-ratio: 1/1;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 700;
+  color: rgb(185, 181, 166);
+  overflow: hidden;
+  padding: 0px;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 250ms;
+  transition: box-shadow 250ms;
+  box-shadow: 1px 1px 2px rgba(125, 125, 125, 0.7);
+}
+.slider-button:hover {
+  opacity: 1;
+  box-shadow: 2px 2px 4px rgba(125, 125, 125, 0.7);
+}
+.right {
+  right: 4%;
+}
+.left {
+  left: 4%;
+}
+.circle-element {
+  box-sizing: border-box;
+  color: rgb(234, 223, 207);
+  margin-left: 2px;
+}
+.circle-element-filled {
+  box-sizing: border-box;
+  color: rgb(177, 170, 153);
+  border-radius: 12px;
+}
+.circle-div {
+  position: absolute;
+  bottom: 5%;
+}
+.loading-image-slider {
+  animation: App-logo-spin infinite 600ms linear;
+  scale: 3;
+  opacity: 0.6;
+  color: var(--btn-bg);
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  z-index: 0;
+}

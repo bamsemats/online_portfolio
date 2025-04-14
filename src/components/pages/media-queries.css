@@ -1,0 +1,42 @@
+
+/*Small screens*/
+@media (width < 1050px) {
+  .home-page-intro h3 {
+    font-size: 2.2rem;
+    line-height: 2.2rem;
+    margin-bottom: 12px;
+    margin-top: 16px;
+    letter-spacing: -1.4px;
+    background: linear-gradient(135deg, var(--text-body), var(--text-body) 40%, rgba(var(--text-body-rgb), 0));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .home-page-intro article {
+    font-size: 1rem;
+    letter-spacing: 0.8px;
+    opacity: 0.8;
+    width: 110%;
+  }
+}
+
+/* Mobile */
+@media (width < 786px) {
+  .home-page-intro h3 {
+    font-size: 2rem;
+    line-height: 2rem;
+    margin-bottom: 8px;
+    margin-top: 16px;
+    letter-spacing: -1.4px;
+    background: linear-gradient(135deg, var(--text-body), var(--text-body) 40%, rgba(var(--text-body-rgb), 0));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .home-page-intro article {
+    font-size: 0.9rem;
+    letter-spacing: 0.8px;
+    opacity: 0.8;
+    width: 140%;
+  }  
+}

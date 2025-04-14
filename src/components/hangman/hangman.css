@@ -1,0 +1,331 @@
+@media (width > 786px) {
+  .hangman-div {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hangman-container {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--btn-bg);
+  width: 80%;
+  max-width: 600px;
+  border-radius: 12px;
+  padding: 24px 0px 0px 0px;
+  box-shadow: 2px 2px 2px rgba(var(--btn-bg-rgb), 0.5);
+}
+.box, .newgame-button {
+  border: none;
+  background-color: #2d2d7c;
+  padding: 4px 8px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  width: 70%;
+}
+.title {
+  color: var(--btn-bg);
+  background-color: var(--bg-panel);
+}
+.banner {
+  /* background: repeating-linear-gradient(135deg, rgb(92, 92, 215), rgb(92, 92, 215) 10px, rgb(215, 211, 255) 10px, rgb(215, 211, 255) 20px); */
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+}
+.code-collection {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: transparent;
+  justify-content: center;
+  margin: 0;
+}
+.letter-boxes {
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  justify-content: center;
+}
+.keyboard {
+  margin-top: 0px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.new-game {
+  background-color: transparent;
+}
+.code-box {
+  border: none;
+  border-radius: 5px;
+  background-color: #2d2d7c;
+  padding: 4px 6px;
+  margin-right: 2px;
+  margin-bottom: 2px;
+  position: relative;
+}
+.missing-letter {
+  color: red;
+}
+.letter:not(.missing-letter) {
+  color: var(--btn-bg);
+}
+.letter {
+  background: linear-gradient(#2d2d7c, #333381);
+  box-shadow: 0px 4px 0px #525271;
+  width: 35px;
+  padding: 0px 0px;
+  border: none;
+  border-radius: 2px;
+  margin-right: 3px;
+  font-weight: 600;
+  min-height: 37.6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.key {
+  background-color: linear-gradient(135deg, #ffea00, #fcf27c);
+  box-shadow: 2px 2px 1px #716d52dd;
+  width: 35px;
+  padding: 8px 0px;
+  border: none;
+  border-radius: 2px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  color: #191956;
+  font-weight: 600;
+  cursor: pointer;
+}
+.newgame-button {
+  font-family: Inter;
+  font-weight: 600;
+  font-size: 18px;
+  background: linear-gradient(135deg, #5959d5, #6969cf);
+  width: fit-content;
+  padding: 10px 68px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.HTML {
+  background-color: rgb(255, 132, 0);
+}
+.CSS {
+  background-color: rgb(87, 87, 253);
+}
+.JavaScript {
+  background-color: #ffea00;
+  color: black;
+}
+.React {
+  background-color: turquoise;
+  color: black;
+}
+.TypeScript {
+  background-color:rgb(0, 107, 165);
+}
+.Node {
+  background-color: rgb(0, 174, 0);
+}
+.Python {
+  background-color: orange;
+  color: black;
+}
+.Ruby {
+  background-color: rgb(226, 0, 0);
+}
+.Assembly {
+  background-color: #4040c5;
+}
+.incorrect {
+  background-color: grey;
+}
+.invisible {
+  opacity: 0;
+}
+.victory {
+  background-color:rgb(0, 174, 0);
+}
+.faskull {
+  position: absolute;
+  width: 20px;
+  color: white;
+  opacity: 0.8;
+  left: calc(50% - (20px / 2));
+}}
+
+@media (width < 786px) {
+  .hangman-wrapper {
+    max-height: 50rem;
+  }
+  .hangman-div {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hangman-container {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--btn-bg);
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+    padding: 12px 0px 0px 0px;
+    box-shadow: 2px 2px 2px rgba(var(--btn-bg-rgb), 0.5);
+  }
+  .box, .newgame-button {
+    border: none;
+    background-color: #2d2d7c;
+    padding: 4px 8px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    width: 90%;
+  }
+  .box h3 {
+    margin: 0;
+    font-size: 1rem;
+  }
+  .box p {
+    font-size: 0.8rem;
+  }
+  .title {
+    color: var(--btn-bg);
+    background-color: var(--bg-panel);
+    font-size: 0.7rem;
+  }
+  .banner {
+    /* background: repeating-linear-gradient(135deg, rgb(92, 92, 215), rgb(92, 92, 215) 10px, rgb(215, 211, 255) 10px, rgb(215, 211, 255) 20px); */
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+  }
+  .code-collection {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: transparent;
+    justify-content: center;
+    margin: 0;
+  }
+  .letter-boxes {
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    justify-content: center;
+  }
+  .keyboard {
+    margin-top: 0px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .new-game {
+    background-color: transparent;
+  }
+  .code-box {
+    border: none;
+    border-radius: 5px;
+    background-color: #2d2d7c;
+    padding: 4px 6px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    position: relative;
+  }
+  .missing-letter {
+    color: red;
+  }
+  .letter:not(.missing-letter) {
+    color: var(--btn-bg);
+  }
+  .letter {
+    background: linear-gradient(#2d2d7c, #333381);
+    box-shadow: 0px 4px 0px #525271;
+    width: 35px;
+    padding: 0px 0px;
+    border: none;
+    border-radius: 2px;
+    margin-right: 3px;
+    font-weight: 600;
+    min-height: 37.6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .key {
+    background-color: linear-gradient(135deg, #ffea00, #fcf27c);
+    box-shadow: 2px 2px 1px #716d52dd;
+    width: 35px;
+    padding: 8px 0px;
+    border: none;
+    border-radius: 2px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    color: #191956;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .newgame-button {
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 18px;
+    background: linear-gradient(135deg, #5959d5, #6969cf);
+    width: fit-content;
+    padding: 10px 68px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .HTML {
+    background-color: rgb(255, 132, 0);
+  }
+  .CSS {
+    background-color: rgb(87, 87, 253);
+  }
+  .JavaScript {
+    background-color: #ffea00;
+    color: black;
+  }
+  .React {
+    background-color: turquoise;
+    color: black;
+  }
+  .TypeScript {
+    background-color:rgb(0, 107, 165);
+  }
+  .Node {
+    background-color: rgb(0, 174, 0);
+  }
+  .Python {
+    background-color: orange;
+    color: black;
+  }
+  .Ruby {
+    background-color: rgb(226, 0, 0);
+  }
+  .Assembly {
+    background-color: #4040c5;
+  }
+  .incorrect {
+    background-color: grey;
+  }
+  .invisible {
+    opacity: 0;
+  }
+  .victory {
+    background-color:rgb(0, 174, 0);
+  }
+  .faskull {
+    position: absolute;
+    width: 20px;
+    color: white;
+    opacity: 0.8;
+    left: calc(50% - (20px / 2));
+  }
+}

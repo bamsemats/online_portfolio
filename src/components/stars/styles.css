@@ -1,0 +1,15 @@
+.filled {
+  fill: url(./styles.css#myGradient)
+}
+.star-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 48px;
+  gap: 1rem;
+}
+.star-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

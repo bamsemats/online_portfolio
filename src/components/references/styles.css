@@ -1,0 +1,52 @@
+
+.references-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+.references-div {
+  width: 100%;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.language-logo-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+.language-logo {
+  height: 2.5rem;
+  margin-left: 16px;
+  margin-right: 8px;
+}
+.gradient {
+  background: linear-gradient(180deg, var(--text-body), var(--text-body) 50%, var(--bg-panel));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1rem;
+}
+.test {
+  width: 50%;
+  height: 50px;
+}
+
+@media (width < 786px) {
+  .language-logo {
+    height: 1.5rem;
+  }
+  .gradient {
+    font-size: 0.8rem;
+  }
+}
