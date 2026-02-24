@@ -1,5 +1,3 @@
-import { PiDropSimple } from "react-icons/pi";
-
 export default function StaticBG(props) {
   return (
     <div className="static-bg">

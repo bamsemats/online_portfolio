@@ -1,5 +1,3 @@
-import { useState, useEffect, useRef } from "react";
-import useLocalStorage from "./useLocalStorage";
 import "./styles.css";
 import { FaCircle } from "react-icons/fa";
 

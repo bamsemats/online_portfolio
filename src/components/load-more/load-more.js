@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import Data from "./data";
 import "./styles.css";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
@@ -32,6 +31,7 @@ export default function LoadMore() {
       return;
     }
     grabData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loadMore]);
 
   function handleClick() {
@@ -51,7 +51,7 @@ export default function LoadMore() {
         {cards.map((object) => {
           return (
             <div className="card-container" key={object.id}>
-              <img src={object.images[0]} className="card-object-image" />
+              <img src={object.images[0]} alt={object.title} className="card-object-image" />
               <p className="card-object-name">{object.title}</p>
             </div>
           );

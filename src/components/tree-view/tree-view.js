@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { data } from "./data";
 import "./styles.css";
 
@@ -47,36 +47,6 @@ export default function TreeView() {
       <div className="tree-view-container">{renderData(data)}</div>
     </div>
   );
-}
-
-{
-  /* <div className="tree-view-div">
-<p>
-  Home
-</p>
-<button 
-className="expand-button">
-  +
-</button>
-<div className="profile-div">
-<p>
-  Profile
-</p>
-<button 
-className="expand-button">
-  +
-</button>
-</div>
-<div className="settings-div">
-<p>
-  Settings
-</p>
-<button 
-className="expand-button">
-  +
-</button>
-</div>
-</div> */
 }
 
 // {data.map(item => {

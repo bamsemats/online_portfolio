@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef } from "react";
-import Data from "./data";
+import { useState } from "react";
 import "./styles.css";
 import { FaStar } from "react-icons/fa";
 

@@ -1,15 +1,9 @@
 import { useEffect, useState } from "react";
-import data from "./data";
 import {
-  BsArrowLeftCircleFill,
-  BsArrowRightCircleFill,
   BsCircleFill,
-  BsCircle,
 } from "react-icons/bs";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import "./styles.css";
-import matchersStandalone from "@testing-library/jest-dom/matchers";
-import { IoImagesSharp } from "react-icons/io5";
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 
@@ -32,11 +26,6 @@ export default function ImageSlider() {
       });
 
       setImages(data);
-
-      images.forEach((item) => {
-        const img = new Image();
-        img.src = item.download_url;
-      });
     } catch (e) {
       console.log(e.message);
     }
@@ -44,18 +33,19 @@ export default function ImageSlider() {
 
   useEffect(() => {
     grabData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function handleClickRight() {
     if (currentPage < 10) {
       setCurrentPage((prev) => prev + 1);
-    } else return;
+    }
   }
 
   function handleClickLeft() {
     if (currentPage > 1) {
       setCurrentPage((prev) => prev - 1);
-    } else return;
+    }
   }
 
   return (
@@ -66,9 +56,10 @@ export default function ImageSlider() {
         {images.map((object, i) => {
           if (i + 1 === currentPage) {
             return (
-              <img src={object.download_url} className="image-slide" key={i} />
+              <img src={object.download_url} alt={`Slide ${i}`} className="image-slide" key={i} />
             );
           }
+          return null;
         })}
         <button className="slider-button left" onClick={handleClickLeft}>
           <FaRegArrowAltCircleLeft />
