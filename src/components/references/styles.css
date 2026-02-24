@@ -11,13 +11,15 @@
 .references-div {
   width: 100%;
   margin-top: 24px;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 12px;
+  filter: grayscale(0.9);
+  opacity: 0.6;
 }
 .language-logo-container {
   display: flex;
@@ -26,7 +28,7 @@
 
 }
 .language-logo {
-  height: 2.5rem;
+  height: 3.5rem;
   margin-left: 16px;
   margin-right: 8px;
 }
