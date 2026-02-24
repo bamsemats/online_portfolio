@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "../../App.css";
 import "./pages.css";
-import { BsGithub, BsBoxArrowUpRight, BsX } from "react-icons/bs";
+import { BsGithub, BsBoxArrowUpRight } from "react-icons/bs";
 
 // Widget Imports
 import Accordian from "../accordian/accordian";

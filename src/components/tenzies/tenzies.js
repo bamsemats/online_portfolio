@@ -1,9 +1,8 @@
 import Die from "./die";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { nanoid } from "nanoid";
 import "./tenzies.css";
 
-const randomNumber = Math.ceil(Math.random() * 6);
 function generateAllNewDice() {
   return new Array(10)
     .fill({
@@ -30,7 +29,6 @@ function Tenzies() {
     generateAllNewDice()
   );
   // console.log(randomDieNumber);
-  const [dieOn, setDieOn] = useState("On");
 
   function rollDice() {
     setRandomDieNumber((prev) =>

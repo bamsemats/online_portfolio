@@ -1,6 +1,6 @@
 
 /*Small screens*/
-@media (width < 1050px) {
+@media (max-width: 1049.98px) {
   .home-page-intro h3 {
     font-size: 2.2rem;
     line-height: 2.2rem;
@@ -21,7 +21,7 @@
 }
 
 /* Mobile */
-@media (width < 786px) {
+@media (max-width: 785.98px) {
   .home-page-intro h3 {
     font-size: 2rem;
     line-height: 2rem;

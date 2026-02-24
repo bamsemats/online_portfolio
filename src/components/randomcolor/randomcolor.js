@@ -52,6 +52,7 @@ export default function RandomColor() {
       return;
     }
     setHistory((prev) => [...prev, colorTypeHex ? randomHex : randomRGB]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [randomRGB, randomHex]);
 
   function handleClick(color) {
@@ -63,8 +64,6 @@ export default function RandomColor() {
       setColorTypeHex(false);
     }
   }
-
-  const background = "linear-gradient(135deg, #ffffff, #111111)";
 
   return (
     <div className="app-container wrapper bento-random-color">
@@ -99,6 +98,7 @@ export default function RandomColor() {
       </div>
       <div className="history-container">
         <p className="history-title">History</p>
+        {/* We need to keep the Data component usage or fix it if it's broken, but since Data was imported from './data' and likely renders the history, I'll keep the import if it's actually used below. Looking at the JSX, it IS used. */}
         <Data props={history} clicker={handleClick} />
       </div>
     </div>

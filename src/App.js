@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import References from "./components/references/references";
 import ScrollIndicatorStaticBars from "./components/scroll-indicator-static-bars/scroll-indicator-static-bars";
@@ -17,15 +17,13 @@ function App() {
   const [menuListOpen, setMenuListOpen] = useState(false);
   const location = useLocation();
 
-  const closeTimeout = useRef(null);
-
   // Sync theme with document element for global CSS access
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
   function handleMenuClick() {
-    // ... logic remains same
+    setMenuListOpen((prev) => !prev);
   }
 
   function handleToggle() {

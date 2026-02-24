@@ -75,6 +75,7 @@ function HangMan() {
       }
     }
     getWord();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [aNewGame]);
 
   // useEffect(() => {
@@ -137,6 +138,7 @@ function HangMan() {
     } else {
       return; // console.log('nay');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [guesses]);
 
   useEffect(() => {

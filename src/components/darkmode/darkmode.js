@@ -1,5 +1,3 @@
-import { useState, useEffect, useRef } from "react";
-import useLocalStorage from "./useLocalStorage";
 import "./styles.css";
 import { FaCircle } from "react-icons/fa";
 
@@ -15,8 +13,7 @@ export default function DarkMode({ darkTheme, click }) {
       {/* <span className="title-text">DarkMode</span> */}
       <div className="darkmode-div">
         <p>
-          Darkmode
-          {/* : {darkTheme === "dark" ? "ON" : "OFF"} */}
+          {darkTheme === "dark" ? "Darkmode" : "Lightmode"}
         </p>
         <button
           className="darkmode-button"

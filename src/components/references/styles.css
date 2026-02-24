@@ -44,7 +44,7 @@
   height: 50px;
 }
 
-@media (width < 786px) {
+@media (max-width: 785.98px) {
   .language-logo {
     height: 1.5rem;
   }
