@@ -1,0 +1,553 @@
+/* Page Layouts & Global Spacing */
+.home-page, .projects-page, .about-page, .contact-page {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 10rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12rem; /* Even more space between major sections */
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Background SVG */
+.svg-background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  color: var(--text-body);
+}
+
+/* Home Page: Hero Section */
+.hero-section {
+  padding: 4rem 0;
+  text-align: left;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 4rem;
+}
+
+.hero-image-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.profile-image-wrapper {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1;
+  border-radius: 60px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-lg);
+  transform: rotate(3deg);
+  transition: all 0.5s ease;
+}
+
+.profile-image-wrapper:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-title {
+  font-size: clamp(4.2rem, 11vw, 8rem);
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  color: var(--text-heading);
+  margin-bottom: 3.5rem;
+}
+
+.hero-title span {
+  background: linear-gradient(90deg, var(--text-link), var(--text-body-two));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 4px;
+}
+
+.hero-subtitle {
+  font-size: 1.6rem;
+  max-width: 700px;
+  color: var(--text-body);
+  margin-bottom: 5.5rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Bento Grid System */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(300px, auto);
+  gap: 2.5rem;
+}
+
+.bento-item {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: 32px; /* Unified with project-card */
+  padding: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.bento-item:hover {
+  transform: translateY(-8px);
+  border-color: var(--text-link);
+  box-shadow: var(--shadow-lg);
+}
+
+.bento-badge {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: rgba(var(--text-link-rgb), 0.1);
+  color: var(--text-link);
+  padding: 0.5rem 1.2rem;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.featured-projects { grid-column: span 2; grid-row: span 2; background: linear-gradient(135deg, var(--bg-panel), var(--bg-main)); }
+.about-me { grid-column: span 2; }
+.component-lab { grid-column: span 1; }
+.contact-card { grid-column: span 1; background: var(--text-heading); color: var(--bg-main); }
+
+.bento-content h3 { font-size: 2.2rem; margin-bottom: 1.5rem; color: var(--text-heading); font-weight: 700; }
+.bento-content p { font-size: 1.1rem; opacity: 0.8; color: var(--text-body); line-height: 1.8; }
+
+.contact-card .bento-content h3,
+.contact-card .bento-content p { color: var(--bg-main); }
+
+/* Buttons & Links */
+.primary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 1.4rem 2.8rem;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+.primary-btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+/* Projects Page Bento */
+.projects-bento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(300px, auto);
+  gap: 2.5rem;
+}
+
+.project-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: 32px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--text-link);
+  box-shadow: var(--shadow-lg);
+}
+
+.project-card.large { grid-column: span 2; grid-row: span 2; }
+.project-card.medium { grid-column: span 1; }
+
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 4rem;
+  color: var(--text-heading);
+  border-left: 8px solid var(--text-link);
+  padding-left: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.project-body h3 { font-size: 2.2rem; margin-bottom: 1.5rem; font-weight: 700; color: var(--text-heading); }
+.project-body p { font-size: 1.1rem; line-height: 1.8; color: var(--text-body); opacity: 0.8; }
+
+.tech-stack { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.5rem; }
+.tech-badge { background: rgba(var(--text-body-rgb), 0.05); color: var(--text-body-two); padding: 0.5rem 1rem; border-radius: 12px; font-size: 0.85rem; font-weight: 600; }
+
+.project-links { display: flex; gap: 2.5rem; }
+.icon-link { display: flex; align-items: center; gap: 0.7rem; font-weight: 600; color: var(--text-body); transition: color 0.2s ease; font-size: 1.05rem; }
+.icon-link:hover { color: var(--text-link); }
+
+/* Component Lab Section */
+.lab-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.lab-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.lab-item {
+  padding: 1.5rem 2.8rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--text-body);
+}
+
+.lab-item:hover, .lab-item.active {
+  background: var(--text-link);
+  color: #fff;
+  border-color: var(--text-link);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Lab Viewport (The Workbench) */
+.lab-viewport {
+  width: 100%;
+  min-height: 750px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.viewport-placeholder {
+  opacity: 0.3;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  max-width: 450px;
+  line-height: 1.6;
+}
+
+.viewport-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.viewport-header {
+  padding: 3rem 4rem;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.viewport-header h3 { font-size: 1.5rem; opacity: 0.8; font-weight: 600; }
+
+.clear-btn {
+  background: var(--bg-main);
+  border: 1px solid var(--border-subtle);
+  padding: 0.75rem 1.6rem;
+  border-radius: 14px;
+  color: var(--text-body);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-btn:hover { background: var(--text-heading); color: var(--bg-main); border-color: var(--text-heading); }
+
+.widget-wrapper {
+  padding: 5rem;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+}
+
+/* Fix for existing widgets inside the wrapper */
+.widget-wrapper .app-container {
+  box-shadow: none !important;
+  background: transparent !important;
+  width: 100% !important;
+  min-width: unset !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* About & Contact Page Content Layout */
+.about-content, .contact-bento-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+}
+
+.about-bio {
+  max-width: 1100px;
+}
+
+.bio-grid {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 5rem;
+  align-items: flex-start;
+}
+
+.bio-image-wrapper {
+  aspect-ratio: 1;
+  border-radius: 40px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-md);
+}
+
+.about-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bio-text p {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: var(--text-body);
+  margin-bottom: 2rem;
+}
+
+/* Skills Grid */
+.skills-grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.skill-category-group h3 {
+  font-size: 1.8rem;
+  margin-bottom: 2.5rem;
+  color: var(--text-heading);
+  opacity: 0.6;
+}
+
+.skills-bento {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.skill-card-bento {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  transition: all 0.3s ease;
+}
+
+.skill-card-bento:hover {
+  transform: translateY(-5px);
+  border-color: var(--text-link);
+  box-shadow: var(--shadow-md);
+}
+
+.skill-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 2.5rem;
+  color: var(--text-link);
+}
+
+.skill-card-header span {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.skill-card-code {
+  background: rgba(0, 0, 0, 0.03);
+  padding: 1rem;
+  border-radius: 12px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  color: var(--text-body-two);
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+[data-theme='dark'] .skill-card-code {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Contact Bento Grid */
+.contact-bento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+}
+
+.contact-methods-bento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.contact-item {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.contact-item:hover {
+  border-color: var(--text-link);
+  background: rgba(var(--text-link-rgb), 0.02);
+}
+
+.contact-item-icon {
+  font-size: 2rem;
+  color: var(--text-link);
+}
+
+.contact-item-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-item-text .label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+  color: var(--text-body);
+}
+
+.contact-item-text .value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-heading);
+}
+
+.contact-form-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: 40px;
+  padding: 4rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.form-field input, .form-field textarea {
+  width: 100%;
+  background: rgba(var(--text-body-rgb), 0.05);
+  border: 1px solid transparent;
+  padding: 1.2rem 1.5rem;
+  border-radius: 16px;
+  color: var(--text-heading);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-field input:focus, .form-field textarea:focus {
+  outline: none;
+  border-color: var(--text-link);
+  background: var(--bg-main);
+}
+
+.contact-submit-btn {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  padding: 1.5rem;
+  border-radius: 18px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.btn-status {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  font-weight: 400;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 900px) {
+  .contact-bento-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .bento-grid, .projects-bento, .hero-grid, .bio-grid { grid-template-columns: 1fr !important; gap: 4rem; }
+  .hero-image-container { justify-content: center; }
+  .profile-image-wrapper { max-width: 300px; transform: rotate(0); }
+  .bio-image-wrapper { max-width: 300px; margin: 0 auto; }
+  .featured-projects, .about-me, .project-card.large { grid-column: span 1; }
+  .hero-title { font-size: 4.5rem; }
+  .home-page, .projects-page, .about-page, .contact-page { padding: 8rem 2rem; gap: 8rem; }
+}

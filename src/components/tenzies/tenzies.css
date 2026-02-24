@@ -1,0 +1,186 @@
+@media (width > 786px) {
+  .tenzies-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tenzies-wrapper {
+  width: 60%;
+  max-width: 500px;
+  margin-top: 24px;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  border-radius: 8px;
+  padding: 48px 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  box-shadow: 2px 2px 2px rgba(var(--btn-bg-rgb), 0.5);
+}
+.tenzies-wrapper h3 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 0px;
+}
+.tenzies-info-box {
+  background-color: var(--btn-text);
+  color: var(--btn-bg);
+  border-radius: 8px;
+  padding: 16px 16px 4px 16px;
+}
+.tenzies {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 18px;
+  width: 85%;
+}
+.die {
+  box-shadow: 2px 2px 1px rgba(var(--btn-text-rgb), 0.5);
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+  border: none;
+  border-radius: 8px;
+  width: 3rem;
+  height: 3rem;
+  background-color: white;
+  color: black;
+}
+.die > button {
+  font-family: Inter;
+  font-weight: 500;
+  color: black;
+  font-size: 2rem;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: none;
+  /* background-color: inherit; */
+  cursor: pointer;
+}
+.Off {
+  background-color: green;
+}
+.On {
+  background: transparent;
+}
+.roll-button {
+  font-family: Inter;
+  font-weight: 500;
+  color: white;
+  font-size: 24px;
+  padding: 8px 8px;
+  border-radius: 8px;
+  border: none;
+  background-color: rgb(80, 125, 251);
+  cursor: pointer;
+  width: 170px;
+  margin-top: 0px;
+  transition: box-shadow 0ms;
+}
+.roll-button:active {
+  box-shadow: 0px 0px 12px 1px var(--btn-text);
+  animation: test-animation 350ms linear;
+}
+p {
+  margin-top: 0px;
+}}
+
+@media (width <= 786px) {
+  .tenzies-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .tenzies-wrapper {
+    width: 90%;
+    max-width: 500px;
+    margin-top: 24px;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    box-shadow: 2px 2px 2px rgba(var(--btn-bg-rgb), 0.5);
+  }
+  .tenzies-wrapper h3 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+  .tenzies-info-box {
+    background-color: var(--btn-text);
+    color: var(--btn-bg);
+    border-radius: 8px;
+    padding: 8px 8px 4px 8px;
+  }
+  .tenzies-info-box p {
+    font-size: 0.8rem;
+    line-height: 4px;
+  }
+  .tenzies {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 18px;
+    width: 85%;
+  }
+  .die {
+    box-shadow: 2px 2px 1px rgba(var(--btn-text-rgb), 0.5);
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    border: none;
+    border-radius: 8px;
+    width: 2rem;
+    height: 2rem;
+    background-color: white;
+    color: black;
+  }
+  .die > button {
+    font-family: Inter;
+    font-weight: 500;
+    color: black;
+    font-size: 1rem;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: none;
+    /* background-color: inherit; */
+    cursor: pointer;
+  }
+  .Off {
+    background-color: green;
+  }
+  .On {
+    background: transparent;
+  }
+  .roll-button {
+    font-family: Inter;
+    font-weight: 500;
+    color: white;
+    font-size: 24px;
+    padding: 8px 8px;
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(80, 125, 251);
+    cursor: pointer;
+    width: 170px;
+    margin-top: 0px;
+    transition: box-shadow 0ms;
+  }
+  .roll-button:active {
+    box-shadow: 0px 0px 12px 1px var(--btn-text);
+    animation: test-animation 350ms linear;
+  }
+  p {
+    margin-top: 0px;
+  }
+}

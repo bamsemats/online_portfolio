@@ -1,0 +1,30 @@
+.app-library-container>* {
+  opacity: 0;
+  scale: 0.8;
+}
+@keyframes fade-in {
+  from {scale: 0.8; opacity: 0}
+  to {scale: 1; opacity: 1;}
+}
+.app-library-container>* {
+  animation: fade-in linear forwards;
+  animation-timeline: view(300px 100px);
+  animation-range: entry;
+}
+
+@keyframes hero-animation {
+  25% {opacity: 1}
+  85%, 100% {opacity: 0}
+}
+.coding-wallpaper-container {
+  animation: hero-animation linear forwards;
+  animation-timeline: view(120vh);
+}
+/* @keyframes static-bg-translate {
+  from {left: inherit; top: inherit}
+  to {left: 5rem; top: 0rem}
+} */
+/* .static-bg.token-1 {
+  animation: static-bg-translate ease forwards;
+  animation-timeline: view(130vh)
+} */

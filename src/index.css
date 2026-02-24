@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+:root {
+  /* Global Constants */
+  --sidebar-width: 150px;
+  --header-height: 4.5rem;
+
+  /* Light Theme - Default */
+  --bg-main: #f8f9fa;
+  --bg-panel: #ffffff;
+  --bg-panel-rgb: 255, 255, 255;
+  --text-heading: #0f172a;
+  --text-body: #475569;
+  --text-body-rgb: 71, 85, 105;
+  --text-link: #6366f1;
+  --text-link-rgb: 99, 102, 241;
+  --text-body-two: #8b5cf6;
+  --btn-bg: #0f172a;
+  --btn-text: #ffffff;
+  --border-subtle: rgba(15, 23, 42, 0.08);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --token-color: #6366f1;
+}
+
+[data-theme='dark'] {
+  /* Dark Theme - High Contrast */
+  --bg-main: #020617;
+  --bg-panel: #0f172a;
+  --bg-panel-rgb: 15, 23, 42;
+  --text-heading: #f8fafc;
+  --text-body: #94a3b8;
+  --text-body-rgb: 148, 163, 184;
+  --text-link: #818cf8;
+  --text-link-rgb: 129, 140, 248;
+  --text-body-two: #a78bfa;
+  --btn-bg: #f8fafc;
+  --btn-text: #020617;
+  --border-subtle: rgba(248, 252, 252, 0.1);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --token-color: #818cf8;
+}
+
+html, body {
+  background-color: var(--bg-main);
+  color: var(--text-body);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header & Title Bar Visibility */
+.title-bar-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  letter-spacing: -0.04em;
+  opacity: 0.9;
+}
+
+/* Static Background Tokens - Simplified & Solid */
+.static-bg .token-1 {
+  position: fixed;
+  z-index: -1;
+  font-weight: 900;
+  color: var(--token-color);
+  -webkit-text-fill-color: initial;
+  background: none;
+  opacity: 0.2;
+  transition: all 0.5s ease;
+}
+
+[data-theme='dark'] .static-bg .token-1 {
+  opacity: 0.35;
+}
+
+@keyframes static-bg-float {
+  0% { left: 4%; top: 15vh; transform: scale(1); }
+  25%, 100% { left: 4.5rem; top: 1.35rem; transform: scale(0.25); }
+}
+
+@media (min-width: 1050px) {
+  .token-1 {
+    font-size: 6rem;
+    animation: static-bg-float linear forwards;
+    animation-timeline: scroll();
+  }
+}
+
+/* Navigation Bar */
+.title-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background: rgba(var(--bg-panel-rgb), 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  z-index: 1000;
+  box-shadow: var(--shadow-sm);
+}
+
+.title-bar-logo { display: flex; align-items: center; gap: 12px; }
+.logo-icon { font-size: 1.6rem; color: var(--text-link); animation: spin 24s linear infinite; }
+.title-bar-logo-name { font-weight: 800; font-size: 1.15rem; color: var(--text-heading); letter-spacing: -0.04em; }
+
+.social-links {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  padding-top: 4px;
+  padding-left: 30px;
+  
+  & * {
+    font-size: 18px;
+  }
+}
+
+
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
