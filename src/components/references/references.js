@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import Data from "./data";
 import "./styles.css";
-import cssLogo from "./assets/css3-original.svg";
-import htmlLogo from "./assets/html5-original.svg";
-import javaScriptLogo from "./assets/javascript-original.svg";
-import reactLogo from "./assets/react-original.svg";
+import cssLogo from "./assets/w3_css-official.svg";
+import htmlLogo from "./assets/html5-ar21.svg";
+import javaScriptLogo from "./assets/javascript-ar21.svg";
+import reactLogo from "./assets/reactjs-ar21.svg";
+import javaLogo from "./assets/java-ar21.svg";
 
 export default function References() {
   return (
@@ -14,19 +15,19 @@ export default function References() {
         <div className="references-div">
           <div className="language-logo-container ">
             <img src={htmlLogo} className="language-logo" />
-            <h4 className="gradient">HTML</h4>
           </div>
           <div className="language-logo-container ">
             <img src={cssLogo} className="language-logo" />
-            <h4 className="gradient">CSS</h4>
           </div>
           <div className="language-logo-container ">
             <img src={javaScriptLogo} className="language-logo" />
-            <h4 className="gradient">JavaScript</h4>
           </div>
           <div className="language-logo-container ">
             <img src={reactLogo} className="language-logo" />
-            <h4 className="gradient">React</h4>
+          </div>
+          <div className="language-logo-container ">
+            <img src={javaLogo} className="language-logo" />
+            
           </div>
         </div>
       </div>

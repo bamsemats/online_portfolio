@@ -25,7 +25,7 @@ function App() {
   }, [theme]);
 
   function handleMenuClick() {
-    // ... logic remains same
+    setMenuListOpen((prev) => !prev);
   }
 
   function handleToggle() {

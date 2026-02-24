@@ -144,10 +144,10 @@ body {
   gap: 6px;
   padding-top: 4px;
   padding-left: 30px;
-  
-  & * {
-    font-size: 18px;
-  }
+}
+
+.social-links * {
+  font-size: 18px;
 }
 
 
