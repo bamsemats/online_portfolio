@@ -40,3 +40,9 @@
 .darkmode-button:hover {
   opacity: 1;
 }
+
+@media (max-width: 820px) {
+  .darkmode-div {
+    flex-direction: column;
+  }
+}

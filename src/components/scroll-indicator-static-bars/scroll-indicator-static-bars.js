@@ -43,11 +43,13 @@ export default function ScrollIndicatorStaticBars({
         ></div>
       </div>
       <div className="title-bar">
-        <div className="title-bar-logo">
-          <div className="title-bar-logo-container">
-            <CgShapeHexagon className="logo-icon" />
+        <div className="title-bar-bg-clip">
+          <div className="title-bar-logo">
+            <div className="title-bar-logo-container">
+              <CgShapeHexagon className="logo-icon" />
+            </div>
+            <div className="title-bar-logo-name">Mats Rönnqvist</div>
           </div>
-          <div className="title-bar-logo-name">Mats Rönnqvist</div>
         </div>
         <div className="title-bar-title">Portfolio</div>
         <div className="page-selectors">
