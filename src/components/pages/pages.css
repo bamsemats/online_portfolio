@@ -8,6 +8,7 @@
   flex-direction: column;
   gap: 12rem; /* Even more space between major sections */
   animation: fadeIn 0.8s ease-out;
+  align-items: center;
 }
 
 @keyframes fadeIn {
@@ -541,6 +542,7 @@
 /* Mobile Adjustments */
 @media (max-width: 900px) {
   .contact-bento-grid { grid-template-columns: 1fr; }
+  .contact-methods-bento { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
 }
 
