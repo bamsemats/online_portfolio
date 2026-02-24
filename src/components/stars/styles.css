@@ -1,5 +1,5 @@
 .filled {
-  fill: url(./styles.css#myGradient)
+  fill: url(#myGrad);
 }
 .star-container {
   display: flex;

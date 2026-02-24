@@ -20,11 +20,3 @@
   animation: hero-animation linear forwards;
   animation-timeline: view(120vh);
 }
-/* @keyframes static-bg-translate {
-  from {left: inherit; top: inherit}
-  to {left: 5rem; top: 0rem}
-} */
-/* .static-bg.token-1 {
-  animation: static-bg-translate ease forwards;
-  animation-timeline: view(130vh)
-} */

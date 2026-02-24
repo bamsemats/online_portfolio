@@ -1,4 +1,4 @@
-@media (width > 786px) {
+@media (min-width: 786px) {
   .hangman-div {
   width: 60%;
   display: flex;
@@ -156,9 +156,10 @@
   color: white;
   opacity: 0.8;
   left: calc(50% - (20px / 2));
-}}
+}
+}
 
-@media (width < 786px) {
+@media (max-width: 785.98px) {
   .hangman-wrapper {
     max-height: 50rem;
   }
