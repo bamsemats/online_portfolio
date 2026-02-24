@@ -551,6 +551,6 @@
   .profile-image-wrapper { max-width: 300px; transform: rotate(0); }
   .bio-image-wrapper { max-width: 300px; margin: 0 auto; }
   .featured-projects, .about-me, .project-card.large { grid-column: span 1; }
-  .hero-title { font-size: 4.5rem; }
+  .hero-title { font-size: 3.5rem; }
   .home-page, .projects-page, .about-page, .contact-page { padding: 8rem 2rem; gap: 8rem; }
 }
