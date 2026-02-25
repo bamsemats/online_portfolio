@@ -29,25 +29,25 @@ const featuredProjects = [
     description: "A real-time utility for translating in-game chat. Utilizes local OCR for text extraction and integrates with the Google Translate API for automated language recognition and translation.",
     tech: ["Python", "OCR", "Google API", "Real-time"],
     link: "#",
-    github: "#",
+    github: "https://github.com/bamsemats/Dota2Translator",
     size: "medium"
   },
   {
     id: 3,
     title: "Java Movie Database & GUI",
-    description: "A professional desktop application for cinema management. Features a custom Java-based GUI designed for efficient local data handling and relational database interaction.",
-    tech: ["Java", "Swing/JavaFX", "Local DB", "OOP"],
+    description: "A Java-based desktop application for movie information searches and local database storage. Features a custom JavaFX GUI designed for efficient local data handling and relational database interaction.",
+    tech: ["Java", "JavaFX", "MySQL DB", "OOP", "TMDB API", "Docker"],
     link: "#",
-    github: "#",
+    github: "https://github.com/ithsjava25/project-jpa-project-jpa-grupp-2-d",
     size: "medium"
   },
   {
     id: 4,
     title: "Java HTTP Webserver",
-    description: "A custom-built server implementation exploring the fundamentals of the HTTP protocol. Handles concurrent requests via socket programming and serves dynamic content from a local directory.",
+    description: "A custom-built server implementation exploring the fundamentals of the HTTP protocol. Handles concurrent requests via socket programming and serves both static and dynamic content from a local directory.",
     tech: ["Java", "Sockets", "Networking", "Multithreading"],
-    link: "#",
-    github: "#",
+    link: "https://juv25d.coolify.fungover.org/index.html",
+    github: "#https://github.com/ithsjava25/project-webserver-juv25d",
     size: "medium"
   }
 ];
@@ -92,7 +92,8 @@ export default function ProjectsPage() {
               <div className="project-footer">
                 <div className="project-links">
                   <a href={project.github} className="icon-link"><BsGithub /> Code</a>
-                  <a href={project.link} className="icon-link"><BsBoxArrowUpRight /> Demo</a>
+                  <a href={project.link} className="icon-link" style={{
+                    visibility: project.link === "#" ? "hidden" : "visible" }}><BsBoxArrowUpRight /> Demo</a>
                 </div>
               </div>
             </div>

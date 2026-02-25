@@ -1,3 +1,4 @@
+import React from 'react';
 import "./styles.css";
 import cssLogo from "./assets/w3_css-official.svg";
 import htmlLogo from "./assets/html5-ar21.svg";
@@ -7,6 +8,13 @@ import javaLogo from "./assets/java-ar21.svg";
 import mysqlLogo from "./assets/mysql-ar21.svg";
 import dockerLogo from "./assets/docker-ar21.svg";
 import gitLogo from "./assets/git-scm-ar21.svg"
+import {
+  FaNode
+} from "react-icons/fa";
+import {
+  TiHtml5
+} from "react-icons/ti";
+
 
 export default function References() {
   return (
@@ -15,7 +23,7 @@ export default function References() {
       <div className="references-container">
         <div className="references-div">
           <div className="language-logo-container ">
-            <img src={htmlLogo} className="language-logo" alt="HTML"/>
+            <TiHtml5 className="language-logo" alt="HTML"/>
           </div>
           <div className="language-logo-container ">
             <img src={cssLogo} className="language-logo" alt="CSS"/>
@@ -37,6 +45,9 @@ export default function References() {
           </div>
           <div className="language-logo-container ">
             <img src={gitLogo} className="language-logo" alt="Git"/>
+          </div>
+          <div className="language-logo-container ">
+            <FaNode className="language-logo" alt="Node"/>
           </div>
         </div>
       </div>

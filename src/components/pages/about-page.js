@@ -5,6 +5,12 @@ import {
   SiNodedotjs, SiExpress, SiMongodb, SiPostgresql,
   SiGit, SiDocker, SiFigma, SiVite
 } from "react-icons/si";
+import {
+  FaJava, FaNodeJs
+} from "react-icons/fa";
+import {
+  GrMysql
+} from "react-icons/gr";
 import profilePic from "../../profile_picture.jpg";
 
 const skills = [
@@ -15,10 +21,10 @@ const skills = [
     { name: "CSS3", icon: <SiCss3 />, code: "display: grid; gap: 2rem;" }
   ]},
   { category: "Backend", icons: [
-    { name: "Node.js", icon: <SiNodedotjs />, code: "const fs = require('fs');" },
-    { name: "Express", icon: <SiExpress />, code: "app.get('/', (req, res) => {});" },
+    { name: "Java", icon: <FaJava />, code: "const fs = require('fs');" },
+    { name: "MySQL", icon: <GrMysql />, code: "SELECT * FROM users;;" },
     { name: "MongoDB", icon: <SiMongodb />, code: "db.collection.find({});" },
-    { name: "PostgreSQL", icon: <SiPostgresql />, code: "SELECT * FROM users;" }
+    { name: "Node.js", icon: <FaNodeJs />, code: "const server = createServer((req, res) => {" }
   ]},
   { category: "Tools", icons: [
     { name: "Git", icon: <SiGit />, code: "git commit -m 'feat: update';" },

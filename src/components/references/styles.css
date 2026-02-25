@@ -31,6 +31,7 @@
   height: 3.5rem;
   margin-left: 16px;
   margin-right: 8px;
+  font-size: 3.5rem;
 }
 .gradient {
   background: linear-gradient(180deg, var(--text-body), var(--text-body) 50%, var(--bg-panel));
