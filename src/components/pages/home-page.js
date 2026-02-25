@@ -4,6 +4,16 @@ import { Link } from "react-router-dom";
 import { BsArrowRight, BsGithub, BsLinkedin } from "react-icons/bs";
 import profilePic from "../../profile_picture.jpg";
 
+const experiences = "Experiences";
+
+const SplitText = ({ text }) => (
+  <>
+  {text.split("").map((char, i) => (
+    <span key={i} className={`split-${text.toLowerCase()}-${i}`}>{char}</span>
+  ))}
+  </>
+)
+
 export default function HomePage() {
   return (
     <div className="home-page">
@@ -11,8 +21,8 @@ export default function HomePage() {
         <div className="hero-grid">
           <div className="hero-content">
             <h1 className="hero-title">
-              Crafting Digital <br />
-              <span>Experiences</span>
+              <span className="crafting-span">Crafting Digital</span> <br />
+              <span className="experience-span" datat-text="Experiences"><SplitText text="Experiences"/></span>
             </h1>
             <p className="hero-subtitle">
               I'm Mats Rönnqvist, a developer focused on building functional, 

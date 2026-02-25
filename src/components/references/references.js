@@ -14,6 +14,9 @@ import {
 import {
   TiHtml5
 } from "react-icons/ti";
+import {
+  SiJavascript
+} from "react-icons/si";
 
 
 export default function References() {
@@ -29,7 +32,7 @@ export default function References() {
             <img src={cssLogo} className="language-logo" alt="CSS"/>
           </div>
           <div className="language-logo-container ">
-            <img src={javaScriptLogo} className="language-logo" alt="JavaScript"/>
+            <SiJavascript className="language-logo" alt="JavaScript"/>
           </div>
           <div className="language-logo-container ">
             <img src={reactLogo} className="language-logo" alt="React"/>

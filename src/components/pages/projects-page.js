@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "../../App.css";
 import "./pages.css";
 import { BsGithub, BsBoxArrowUpRight } from "react-icons/bs";
+import ProjectImageSlider from "./ProjectImageSlider";
 
 // Widget Imports
 import Accordian from "../accordian/accordian";
@@ -13,6 +14,12 @@ import TreeView from "../tree-view/tree-view";
 import HangMan from "../hangman/hangman";
 import Tenzies from "../tenzies/tenzies";
 
+// Movie DB Images
+import movie1 from "../../assets/example_images/movie_db_example_1.png";
+import movie2 from "../../assets/example_images/movie_db_example_2.png";
+import movie3 from "../../assets/example_images/movie_db_example_3.png";
+import movie4 from "../../assets/example_images/movie_db_example_4.png";
+
 const featuredProjects = [
   {
     id: 1,
@@ -21,7 +28,8 @@ const featuredProjects = [
     tech: ["React", "TipTap", "CSS Modules", "Rich Text"],
     link: "#",
     github: "#",
-    size: "large"
+    size: "large",
+    images: [] // Placeholder for future screenshots
   },
   {
     id: 2,
@@ -30,7 +38,8 @@ const featuredProjects = [
     tech: ["Python", "OCR", "Google API", "Real-time"],
     link: "#",
     github: "https://github.com/bamsemats/Dota2Translator",
-    size: "medium"
+    size: "medium",
+    images: [] // Placeholder
   },
   {
     id: 3,
@@ -39,7 +48,8 @@ const featuredProjects = [
     tech: ["Java", "JavaFX", "MySQL DB", "OOP", "TMDB API", "Docker"],
     link: "#",
     github: "https://github.com/ithsjava25/project-jpa-project-jpa-grupp-2-d",
-    size: "medium"
+    size: "medium",
+    images: [movie1, movie2, movie3, movie4]
   },
   {
     id: 4,
@@ -48,7 +58,8 @@ const featuredProjects = [
     tech: ["Java", "Sockets", "Networking", "Multithreading"],
     link: "https://juv25d.coolify.fungover.org/index.html",
     github: "#https://github.com/ithsjava25/project-webserver-juv25d",
-    size: "medium"
+    size: "medium",
+    images: [] // Placeholder
   }
 ];
 
@@ -81,6 +92,9 @@ export default function ProjectsPage() {
           {featuredProjects.map((project) => (
             <div key={project.id} className={`project-card ${project.size}`}>
               <div className="project-header">
+                {project.images && project.images.length > 0 && (
+                  <ProjectImageSlider images={project.images} />
+                )}
                 <div className="tech-stack">
                   {project.tech.map(t => <span key={t} className="tech-badge">{t}</span>)}
                 </div>
@@ -91,9 +105,9 @@ export default function ProjectsPage() {
               </div>
               <div className="project-footer">
                 <div className="project-links">
-                  <a href={project.github} className="icon-link"><BsGithub /> Code</a>
-                  <a href={project.link} className="icon-link" style={{
-                    visibility: project.link === "#" ? "hidden" : "visible" }}><BsBoxArrowUpRight /> Demo</a>
+                  <a href={project.github} className="icon-link" target="_blank" rel="noreferrer"><BsGithub /> Code</a>
+                  <a href={project.link} className="icon-link" target="_blank" rel="noreferrer" style={{
+                    visibility: (project.link === "#" || !project.link) ? "hidden" : "visible" }}><BsBoxArrowUpRight /> Demo</a>
                 </div>
               </div>
             </div>

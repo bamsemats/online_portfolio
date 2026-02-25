@@ -17,6 +17,8 @@ function App() {
   const [menuListOpen, setMenuListOpen] = useState(false);
   const location = useLocation();
 
+  const themes = ["light", "dark", "emerald", "midnight"];
+
   // Sync theme with document element for global CSS access
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -27,7 +29,9 @@ function App() {
   }
 
   function handleToggle() {
-    setTheme(theme === "light" ? "dark" : "light");
+    const currentIndex = themes.indexOf(theme);
+    const nextIndex = (currentIndex + 1) % themes.length;
+    setTheme(themes[nextIndex]);
   }
 
   const currentPath = location.pathname === "/" ? "home" : location.pathname.substring(1);
@@ -44,14 +48,16 @@ function App() {
         menuState={menuListOpen}
       />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/apps" element={<ProjectsPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="*" element={<div>Error loading page</div>} />
-      </Routes>
+      <main className="main-content" key={location.key}>
+        <Routes location={location}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/apps" element={<ProjectsPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<div>Error loading page</div>} />
+        </Routes>
+      </main>
 
       <References />
     </div>

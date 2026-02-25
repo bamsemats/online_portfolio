@@ -47,6 +47,42 @@
   --token-color: #818cf8;
 }
 
+[data-theme='emerald'] {
+  /* Emerald Theme - Fresh & Natural */
+  --bg-main: #f0fdf4;
+  --bg-panel: #ffffff;
+  --bg-panel-rgb: 255, 255, 255;
+  --text-heading: #064e3b;
+  --text-body: #065f46;
+  --text-body-rgb: 6, 95, 70;
+  --text-link: #059669;
+  --text-link-rgb: 5, 150, 105;
+  --text-body-two: #10b981;
+  --btn-bg: #064e3b;
+  --btn-text: #ffffff;
+  --border-subtle: rgba(6, 78, 59, 0.08);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --token-color: #059669;
+}
+
+[data-theme='midnight'] {
+  /* Midnight Theme - Bold & High Contrast */
+  --bg-main: #020202;
+  --bg-panel: #0a0a0a;
+  --bg-panel-rgb: 10, 10, 10;
+  --text-heading: #ffffff;
+  --text-body: #d1d5db;
+  --text-body-rgb: 209, 213, 219;
+  --text-link: #ef4444;
+  --text-link-rgb: 239, 68, 68;
+  --text-body-two: #b91c1c;
+  --btn-bg: #ffffff;
+  --btn-text: #000000;
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --token-color: #ef4444;
+}
+
 html, body {
   background-color: var(--bg-main);
   color: var(--text-body);
@@ -66,7 +102,7 @@ body {
 }
 
 .App {
-  min-height: 100vh;
+  min-height: 110vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -109,8 +145,8 @@ body {
 }
 
 @keyframes static-bg-float {
-  0% { left: 4%; top: 15vh; transform: scale(1); }
-  25%, 100% { left: 4.5rem; top: 1.35rem; transform: scale(0.25); }
+  0% { left: 5%; top: 15vh; transform: scale(1); }
+  25%, 100% { left: 1%; top: 1.35rem; transform: scale(0.25); }
 }
 
 @media (min-width: 1050px) {

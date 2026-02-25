@@ -1,12 +1,16 @@
-
+.references-wrapper {
+  margin-top: 4rem;
+}
 .references-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: auto;
+  height: auto;
   position: absolute;
   bottom: 0px;
-  left: 0px;
+  left: 0.5rem;
+  right: 0.5rem;
 }
 .references-div {
   width: 100%;
@@ -17,20 +21,17 @@
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 12px;
-  filter: grayscale(0.9);
-  opacity: 0.6;
+  gap: 2rem;
+  filter: grayscale(1);
+  opacity: 0.4;
 }
 .language-logo-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
-
 }
 .language-logo {
   height: 3.5rem;
-  margin-left: 16px;
-  margin-right: 8px;
   font-size: 3.5rem;
 }
 .gradient {
@@ -48,6 +49,7 @@
 @media (max-width: 785.98px) {
   .language-logo {
     height: 1.5rem;
+    font-size: 1.5rem;
   }
   .gradient {
     font-size: 0.8rem;

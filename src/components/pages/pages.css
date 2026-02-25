@@ -6,14 +6,22 @@
   padding: 10rem 2rem;
   display: flex;
   flex-direction: column;
-  gap: 12rem; /* Even more space between major sections */
-  animation: fadeIn 0.8s ease-out;
+  gap: 12rem;
   align-items: center;
+  /* Trigger professional entry animation */
+  animation: pageReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  will-change: transform, opacity;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes pageReveal {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px) scale(0.98); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
 }
 
 /* Background SVG */
@@ -72,14 +80,69 @@
   letter-spacing: -0.05em;
   color: var(--text-heading);
   margin-bottom: 3.5rem;
+  padding-bottom: clamp(4.2rem, 11vw, 8rem);
+  isolation: isolate;
+  
 }
 
-.hero-title span {
+.hero-title span:not(.crafting-span) {
   background: linear-gradient(90deg, var(--text-link), var(--text-body-two));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  padding: 4px;
+}
+
+.crafting-span {
+  z-index: 1;
+  position: relative;
+}
+
+.experience-span {
+  margin-left: 0.05em;
+  text-shadow: 0px 2ex 0px var(--text-body);
+  height: clamp(4.2rem, 11vw, 8rem);
+  overflow: hidden;
+  position: absolute;
+}
+
+.experience-span > span {
+  position: relative;
+  display: inline-block;
+  overflow: visible;
+  height: clamp(4.2rem, 11vw, 8rem);
+  padding-right: 0.05em;
+  margin-left: -0.05em;
+}
+.experience-span:hover {
+  span {
+      animation: float-up 0.4s ease forwards;
+      animation-delay: calc(sibling-index() * 0.03s);
+  }
+}
+
+.experience-span:not(:hover) {
+    span {
+      animation: float-down 0.3s ease backwards;
+      animation-delay: calc(sibling-index() * 0.03s);
+    }
+}
+
+@keyframes float-up {
+  0% {
+    translate: 0 0%;
+  }
+  100% {
+    translate: 0 -2ex;
+  }
+}
+
+@keyframes float-down {
+  0% {
+    translate: 0 -2ex;
+  }
+  100% {
+    translate: 0 0;
+  }
 }
 
 .hero-subtitle {
@@ -187,7 +250,81 @@
   box-shadow: var(--shadow-lg);
 }
 
-.project-card.large { grid-column: span 2; grid-row: span 2; }
+/* Project Image Slider */
+.project-slider {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+}
+
+.slider-main {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(var(--text-body-rgb), 0.05);
+  border: 1px solid var(--border-subtle);
+}
+
+.slider-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s ease-out;
+  transform: scale(1.05);
+}
+
+.slider-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+
+.slider-thumbnails {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.thumbnail-item {
+  width: 60px;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+  background: var(--bg-panel);
+}
+
+.thumbnail-item:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+}
+
+.thumbnail-item.active {
+  opacity: 1;
+  border-color: var(--text-link);
+  box-shadow: 0 4px 12px rgba(var(--text-link-rgb), 0.2);
+}
+
+.thumbnail-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Featured Section Adjustments */
+.project-card.large { grid-column: span 2; grid-row: span 2; padding: 4rem; }
 .project-card.medium { grid-column: span 1; }
 
 .section-title {
@@ -577,11 +714,76 @@
 
 /* Mobile Responsiveness */
 @media (max-width: 1024px) {
-  .bento-grid, .projects-bento, .hero-grid, .bio-grid { grid-template-columns: 1fr !important; gap: 4rem; }
+  .home-page, .projects-page, .about-page, .contact-page { 
+    padding: 8rem 1.5rem 6rem; /* Reduced top/bottom padding */
+    gap: 6rem; /* Significantly tighter gaps for mobile */
+  }
+
+  .bento-grid, .projects-bento, .hero-grid, .bio-grid { 
+    grid-template-columns: 1fr !important; 
+    gap: 2rem; 
+  }
+  
   .hero-image-container { justify-content: center; }
-  .profile-image-wrapper { max-width: 300px; transform: rotate(0); }
-  .bio-image-wrapper { max-width: 300px; margin: 0 auto; }
-  .featured-projects, .about-me, .project-card.large { grid-column: span 1; }
-  .hero-title { font-size: 3.5rem; }
-  .home-page, .projects-page, .about-page, .contact-page { padding: 8rem 2rem; gap: 8rem; }
+  .profile-image-wrapper { max-width: 280px; transform: rotate(0); }
+  
+  .bio-image-wrapper { 
+    max-width: 280px; 
+    margin: 0 auto; 
+    border-radius: 30px;
+  }
+  
+  .featured-projects, .about-me, .project-card.large { grid-column: span 1; padding: 2.5rem; }
+  
+  .hero-title { font-size: 3.5rem; margin-bottom: 2rem; }
+  .hero-subtitle { font-size: 1.2rem; margin-bottom: 3.5rem; }
+  
+  .section-title { 
+    font-size: 2.2rem; 
+    margin-bottom: 2.5rem; 
+    padding-left: 1rem;
+    border-left-width: 6px;
+  }
+
+  /* Slider Adjustments for Mobile */
+  .slider-main { border-radius: 16px; }
+  .slider-thumbnails { gap: 0.5rem; }
+  .thumbnail-item { width: 50px; }
+
+  /* Project Card Tuning */
+  .project-card { padding: 2rem; border-radius: 24px; }
+  .project-body h3 { font-size: 1.8rem; }
+  
+  /* Lab Workbench Mobile Fixes */
+  .lab-viewport { 
+    min-height: 500px; 
+    border-radius: 32px; 
+  }
+  .viewport-header { padding: 2rem; }
+  .widget-wrapper { padding: 2rem 1rem; }
+  
+  /* About Bio */
+  .bio-text p { font-size: 1.15rem; }
+  
+  /* Contact Page */
+  .contact-form-panel { padding: 2.5rem 1.5rem; border-radius: 32px; }
+  .contact-info-panel { gap: 4rem; }
+  .contact-bento-grid { gap: 4rem; }
+}
+
+@media (max-width: 600px) {
+  .home-page, .projects-page, .about-page, .contact-page { 
+    padding: 7rem 1.2rem 4rem; 
+    gap: 5rem;
+  }
+  
+  .hero-title { font-size: 2.8rem; }
+  .bento-item { padding: 2.5rem; border-radius: 24px; }
+  .bento-content h3 { font-size: 1.8rem; }
+  
+  .skill-card-bento { padding: 1.8rem; }
+  .skill-card-header { font-size: 2rem; }
+  
+  .contact-methods-bento { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; gap: 1.5rem; }
 }

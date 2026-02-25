@@ -1,33 +1,29 @@
 import "./styles.css";
-import { FaCircle } from "react-icons/fa";
+import { HiPaintBrush } from "react-icons/hi2";
 
 export default function DarkMode({ darkTheme, click }) {
-  // const [theme, setTheme] = useLocalStorage("theme", "dark");
-
-  // function handleToggle() {
-  //   setTheme(theme === "light" ? "dark" : "light");
-  // }
+  // Mapping internal keys to display labels
+  const themeLabels = {
+    light: "Light",
+    dark: "Dark",
+    emerald: "Emerald",
+    midnight: "Midnight"
+  };
 
   return (
     <div className="darkmode-container">
-      {/* <span className="title-text">DarkMode</span> */}
       <div className="darkmode-div">
-        <p>
-          {darkTheme === "dark" ? "Darkmode" : "Lightmode"}
+        <p className="theme-label">
+          {themeLabels[darkTheme] || "Theme"}
         </p>
         <button
-          className="darkmode-button"
-          style={{
-            justifyContent: darkTheme === "dark" ? "flex-start" : "flex-end",
-          }}
+          className="theme-cycle-button"
           onClick={click}
+          title="Cycle Themes"
         >
-          <FaCircle
-            fill={"var(--btn-text)"}
-            style={{
-              fill: "var(--btn-text)",
-            }}
-          />
+          <div className="theme-indicator">
+            <HiPaintBrush size={10} style={{opacity: 0.9 }} />
+          </div>
         </button>
       </div>
     </div>
