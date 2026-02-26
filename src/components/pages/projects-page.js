@@ -20,16 +20,26 @@ import movie2 from "../../assets/example_images/movie_db_example_2.png";
 import movie3 from "../../assets/example_images/movie_db_example_3.png";
 import movie4 from "../../assets/example_images/movie_db_example_4.png";
 
+// Text Editor Images
+import textEditor1 from "../../assets/example_images/text_editor_example_1.png";
+import textEditor2 from "../../assets/example_images/text_editor_example_2.png";
+import textEditor3 from "../../assets/example_images/text_editor_example_3.png";
+
+//HTTP Server Example
+import httpServerExample1 from "../../assets/example_images/http_server_example_1.png";
+import httpServerExample2 from "../../assets/example_images/http_server_example_2.png";
+import httpServerExample3 from "../../assets/example_images/http_server_example_3.png";
+
 const featuredProjects = [
   {
     id: 1,
     title: "Modern Text Editor Interface",
     description: "A sophisticated rich-text editor built on the Tiptap library. Features a highly configurable typewriting interface with real-time controls for typography, color systems, and structural formatting. Can be adjusted for the need of the application",
-    tech: ["React", "TipTap", "CSS Modules", "Rich Text"],
-    link: "#",
+    tech: ["React", "Tiptap", "CSS Modules", "Rich Text"],
+    link: "https://bamsemats.github.io/logbook/",
     github: "https://github.com/bamsemats/logbook",
     size: "large",
-    images: [] // Placeholder for future screenshots
+    images: [textEditor1, textEditor2, textEditor3]
   },
   {
     id: 2,
@@ -59,7 +69,7 @@ const featuredProjects = [
     link: "https://juv25d.coolify.fungover.org/index.html",
     github: "#https://github.com/ithsjava25/project-webserver-juv25d",
     size: "medium",
-    images: [] // Placeholder
+    images: [httpServerExample1, httpServerExample2, httpServerExample3] 
   }
 ];
 
@@ -117,7 +127,7 @@ export default function ProjectsPage() {
 
       <section className="lab-section">
         <h2 className="section-title">Component Lab</h2>
-        <p className="section-subtitle">Interactive UI widgets and logic experiments built to master React fundamentals.</p>
+        <p className="section-subtitle">Basic interactive UI widgets and logic experiments built to practice React fundamentals.</p>
         
         <div className="lab-grid">
           {labComponents.map((item) => (

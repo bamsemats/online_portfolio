@@ -62,8 +62,13 @@ export default function ContactPage() {
         <div className="contact-hero-content">
           <h1>Let's <span>Connect</span></h1>
           <p className="lead-text">
-            I'm currently looking for new opportunities and collaborations. 
-            Whether you have a question or just want to say hi, I'll try my best 
+            I'm currently looking for new opportunities and collaborations.
+            Specifically, I'm looking for an internship for my studies{" "}
+           <span className="highlight">
+            [Nov 2026 - June 2027]
+          </span>{" "}
+            (remote or in Malmö/Lund region).
+            </p> <p>Whether you have a question or just want to say hi, I'll try my best
             to get back to you!
           </p>
         </div>

@@ -145,13 +145,71 @@
   }
 }
 
-.hero-subtitle {
-  font-size: 1.6rem;
-  max-width: 700px;
-  color: var(--text-body);
-  margin-bottom: 5.5rem;
-  font-weight: 400;
-  line-height: 1.6;
+.hero-cta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4rem;
+  padding-top: 1rem;
+}
+
+.cta-left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-activity-group {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+}
+
+.mobile-only { display: none; }
+.desktop-only { display: block; }
+
+.activity-chart-wrapper {
+  background: rgba(var(--text-body-rgb), 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 1.2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: fit-content;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-body-two);
+}
+
+.chart-title {
+  opacity: 0.6;
+}
+
+.chart-stat {
+  color: var(--text-link);
+}
+
+.hero-cta .social-links {
+  display: flex;
+  gap: 0.8rem;
+  font-size: 1.8rem;
+  padding: 0;
+}
+
+.hero-cta .social-links a {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.hero-cta .social-links a:hover {
+  transform: translateY(-3px);
+  color: var(--text-link);
 }
 
 /* Bento Grid System */
@@ -198,16 +256,34 @@
 }
 
 .featured-projects { grid-column: span 2; grid-row: span 2; background: linear-gradient(135deg, var(--bg-panel), var(--bg-main)); }
+.featured-projects .bento-content {
+  padding-bottom: 8rem;
+}
 .about-me { grid-column: span 2; }
 .component-lab { grid-column: span 1; }
 .contact-card { grid-column: span 1; background: var(--text-heading); color: var(--bg-main); }
 
 .bento-content h3 { font-size: 2.2rem; margin-bottom: 1.5rem; color: var(--text-heading); font-weight: 700; }
+
+.bento-icon {
+  font-size: 3.5rem;
+  color: var(--text-link);
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+.contact-card .bento-icon {
+  color: var(--bg-main);
+}
+
 .bento-content p { font-size: 1.1rem; opacity: 0.8; color: var(--text-body); line-height: 1.8; }
 
 .contact-card .bento-content h3,
 .contact-card .bento-content p { color: var(--bg-main); }
 
+.highlight {
+  color: rgba(var(--text-link-rgb), 1);
+}
 /* Buttons & Links */
 .primary-btn {
   display: inline-flex;
@@ -548,16 +624,38 @@
   color: var(--text-heading);
 }
 
+.skill-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.skill-slogan {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--text-body);
+  font-weight: 500;
+  opacity: 0.9;
+}
+
 .skill-card-code {
   background: rgba(0, 0, 0, 0.03);
-  padding: 1rem;
+  padding: 1.2rem;
   border-radius: 12px;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 0.9rem;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
   color: var(--text-body-two);
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.skill-card-code pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.skill-card-code code {
+  color: inherit;
 }
 
 [data-theme='dark'] .skill-card-code {
@@ -710,10 +808,29 @@
   .contact-bento-grid { grid-template-columns: 1fr; }
   .contact-methods-bento { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
+  .featured-projects .bento-content {
+    padding-bottom: 3rem;
+  }
+  .experience-span {
+    height: clamp(3rem, 11vw, 6rem);
+  }
+  .experience-span > span {
+    height: clamp(3rem, 11vw, 6rem);
+  }
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 1024px) {
+    .featured-projects .bento-content {
+    padding-bottom: 3rem;
+  }
+  .experience-span {
+    height: clamp(3rem, 11vw, 2ex);
+  }
+  .experience-span > span {
+    height: clamp(3rem, 11vw, 2ex);
+  }
+
   .home-page, .projects-page, .about-page, .contact-page { 
     padding: 8rem 1.5rem 6rem; /* Reduced top/bottom padding */
     gap: 6rem; /* Significantly tighter gaps for mobile */
@@ -736,7 +853,31 @@
   .featured-projects, .about-me, .project-card.large { grid-column: span 1; padding: 2.5rem; }
   
   .hero-title { font-size: 3.5rem; margin-bottom: 2rem; }
-  .hero-subtitle { font-size: 1.2rem; margin-bottom: 3.5rem; }
+  .hero-subtitle { font-size: 1.2rem; margin-bottom: 1.5rem; }
+  
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 3.5rem;
+  }
+
+  .cta-left-column {
+    align-items: center;
+  }
+
+  .hero-activity-group {
+    align-items: center;
+    width: 100%;
+  }
+
+  .mobile-only { display: flex; margin-bottom: 2rem; }
+  .desktop-only { display: none; }
+
+  .activity-chart-wrapper {
+    width: 100%;
+    max-width: 320px;
+    align-items: center;
+  }
   
   .section-title { 
     font-size: 2.2rem; 
