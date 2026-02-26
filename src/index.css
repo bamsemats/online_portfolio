@@ -83,6 +83,10 @@
   --token-color: #ef4444;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 html, body {
   background-color: var(--bg-main);
   color: var(--text-body);
