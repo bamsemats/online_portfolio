@@ -23,11 +23,11 @@ import movie4 from "../../assets/example_images/movie_db_example_4.png";
 const featuredProjects = [
   {
     id: 1,
-    title: "Modern Notebook Interface",
-    description: "A sophisticated rich-text editor built on the TipTap library. Features a highly configurable typewriting interface with real-time controls for typography, color systems, and structural formatting.",
+    title: "Modern Text Editor Interface",
+    description: "A sophisticated rich-text editor built on the Tiptap library. Features a highly configurable typewriting interface with real-time controls for typography, color systems, and structural formatting. Can be adjusted for the need of the application",
     tech: ["React", "TipTap", "CSS Modules", "Rich Text"],
     link: "#",
-    github: "#",
+    github: "https://github.com/bamsemats/logbook",
     size: "large",
     images: [] // Placeholder for future screenshots
   },

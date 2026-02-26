@@ -1,8 +1,12 @@
 {
   "files": {
-    "main.css": "/online_portfolio/static/css/main.f9bca346.css",
-    "main.js": "/online_portfolio/static/js/main.39a7fb02.js",
+    "main.css": "/online_portfolio/static/css/main.09d71fb7.css",
+    "main.js": "/online_portfolio/static/js/main.46ef07ef.js",
     "static/js/453.3c98a1b9.chunk.js": "/online_portfolio/static/js/453.3c98a1b9.chunk.js",
+    "static/media/movie_db_example_1.png": "/online_portfolio/static/media/movie_db_example_1.1109baec763fbf67853a.png",
+    "static/media/movie_db_example_2.png": "/online_portfolio/static/media/movie_db_example_2.b94ef7d55beb4df25fc2.png",
+    "static/media/movie_db_example_4.png": "/online_portfolio/static/media/movie_db_example_4.cf6a4feb6fce78d22b00.png",
+    "static/media/movie_db_example_3.png": "/online_portfolio/static/media/movie_db_example_3.1b8d751d4308c1d8df99.png",
     "static/media/profile_picture.jpg": "/online_portfolio/static/media/profile_picture.54133cf6e9d07244045e.jpg",
     "static/media/javascript-ar21.svg": "/online_portfolio/static/media/javascript-ar21.5f27ddde13837738076b0e25a37ae5c8.svg",
     "static/media/mysql-ar21.svg": "/online_portfolio/static/media/mysql-ar21.3737d1ef555157e6069bbc4a693b96dc.svg",
@@ -13,12 +17,12 @@
     "static/media/w3_css-official.svg": "/online_portfolio/static/media/w3_css-official.abf534f0b1d8057cfaefec85a04f94f0.svg",
     "index.html": "/online_portfolio/index.html",
     "static/media/html5-ar21.svg": "/online_portfolio/static/media/html5-ar21.d1add168bfad0343225307ffd57710dd.svg",
-    "main.f9bca346.css.map": "/online_portfolio/static/css/main.f9bca346.css.map",
-    "main.39a7fb02.js.map": "/online_portfolio/static/js/main.39a7fb02.js.map",
+    "main.09d71fb7.css.map": "/online_portfolio/static/css/main.09d71fb7.css.map",
+    "main.46ef07ef.js.map": "/online_portfolio/static/js/main.46ef07ef.js.map",
     "453.3c98a1b9.chunk.js.map": "/online_portfolio/static/js/453.3c98a1b9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f9bca346.css",
-    "static/js/main.39a7fb02.js"
+    "static/css/main.09d71fb7.css",
+    "static/js/main.46ef07ef.js"
   ]
 }
