@@ -44,6 +44,7 @@ function App() {
     const colors = {
       '--bg-main': `hsl(${hue}, 30%, 5%)`,
       '--bg-panel': `hsl(${hue}, 25%, 8%)`,
+      '--bg-panel-rgb': '15, 23, 42', // Placeholder or dynamic if needed
       '--text-heading': `hsl(${hue}, 10%, 95%)`,
       '--text-body': `hsl(${hue}, 10%, 75%)`,
       '--text-link': `hsl(${hue}, 80%, 60%)`,

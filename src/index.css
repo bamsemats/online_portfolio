@@ -157,7 +157,8 @@ body {
   left: 0;
   width: 100%;
   height: var(--header-height);
-  background: rgba(var(--bg-panel-rgb), 0.85);
+  background: var(--bg-panel); /* Solid fallback for custom themes */
+  background: rgba(var(--bg-panel-rgb), 0.85); /* Glassy for presets */
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-subtle);
@@ -167,6 +168,11 @@ body {
   padding: 0 6%;
   z-index: 1000;
   box-shadow: var(--shadow-sm);
+}
+
+[data-theme='custom'] .title-bar {
+  background: var(--bg-panel);
+  opacity: 0.95;
 }
 
 .title-bar-logo { display: flex; align-items: center; gap: 12px; }
