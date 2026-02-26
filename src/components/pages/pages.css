@@ -76,13 +76,13 @@
 .hero-title {
   font-size: clamp(4.2rem, 11vw, 8rem);
   font-weight: 800;
-  line-height: 0.85;
+  line-height: 1;
   letter-spacing: -0.05em;
   color: var(--text-heading);
   margin-bottom: 3.5rem;
-  padding-bottom: clamp(4.2rem, 11vw, 8rem);
+  padding-bottom: 1.5rem;
   isolation: isolate;
-  
+  min-height: 2.2em; /* Ensure height for two lines */
 }
 
 .hero-title span:not(.crafting-span) {
@@ -95,14 +95,16 @@
 .crafting-span {
   z-index: 1;
   position: relative;
+  display: inline-block;
 }
 
 .experience-span {
   margin-left: 0.05em;
   text-shadow: 0px 2ex 0px var(--text-body);
-  height: clamp(4.2rem, 11vw, 8rem);
+  height: 1.1em;
   overflow: hidden;
-  position: absolute;
+  position: relative; /* Change from absolute to relative for safety */
+  display: inline-block;
 }
 
 .experience-span > span {

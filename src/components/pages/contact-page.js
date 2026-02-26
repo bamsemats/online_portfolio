@@ -99,7 +99,7 @@ export default function ContactPage() {
                 <span className="value">bamsemats</span>
               </div>
             </a>
-            <a href="https://www.google.se/maps/place/K%C3%A4vlinge/" target="_blank" className="contact-item location">
+            <a href="https://www.google.se/maps/place/K%C3%A4vlinge/" target="_blank" rel="noreferrer" className="contact-item location">
               <div className="contact-item-icon"><BsGeoAlt /></div>
               <div className="contact-item-text">
                 <span className="label">Location</span>

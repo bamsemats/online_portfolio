@@ -1,11 +1,11 @@
 import React from 'react';
 import "./pages.css";
-import cicdLogo from "./assets/ci-cd-svgrepo-com.svg";
-import { 
-  SiReact, SiJavascript, SiHtml5, SiCss3, 
-  SiNodedotjs, SiExpress, SiMongodb, SiPostgresql,
-  SiGit, SiDocker, SiFigma, SiVite, SiIntellijidea, SiGooglegemini
+import {
+  SiReact, SiJavascript, SiHtml5, SiCss3,
+  SiMongodb,
+  SiGit, SiDocker, SiIntellijidea, SiGooglegemini
 } from "react-icons/si";
+
 import {
   DiPython
 } from "react-icons/di";

@@ -29,14 +29,14 @@ const ActivityChart = () => {
   const [commitData, setCommitData] = useState([]);
   const [totalCommits, setTotalCommits] = useState(0);
   const [loading, setLoading] = useState(true);
-
-  // Use the CSS variable for theme-aware coloring
-  const themeColor = useMemo(() => {
-    return getComputedStyle(document.documentElement)
-      .getPropertyValue('--text-link').trim() || '#3b82f6';
-  }, []);
+  const [themeColor, setThemeColor] = useState('#6366f1');
 
   useEffect(() => {
+    // Safely get theme color after mount
+    const color = getComputedStyle(document.documentElement)
+      .getPropertyValue('--text-link').trim();
+    if (color) setThemeColor(color);
+
     const fetchGithubActivity = async () => {
       try {
         // Fetch public events for the user
@@ -50,7 +50,6 @@ const ActivityChart = () => {
         // Since the public events API only returns the latest 90 days/300 events,
         // we'll supplement with real-looking trends if the API data is sparse, 
         // but prioritize actual API results.
-        const months = ['Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb'];
         const counts = new Array(6).fill(0);
         
         // Map events to months (simplified logic for demonstration)
@@ -94,8 +93,8 @@ const ActivityChart = () => {
         backgroundColor: (context) => {
           const ctx = context.chart.ctx;
           const gradient = ctx.createLinearGradient(0, 0, 0, 100);
-          gradient.addColorStop(0, themeColor + '33');
-          gradient.addColorStop(1, themeColor + '00');
+          gradient.addColorStop(0, themeColor); // use solid color but let alpha handle it? no, simpler:
+          gradient.addColorStop(1, 'transparent');
           return gradient;
         },
       },
@@ -103,9 +102,9 @@ const ActivityChart = () => {
         type: 'bar',
         label: 'Commits',
         data: commitData,
-        backgroundColor: themeColor + '1a',
+        backgroundColor: themeColor,
         borderRadius: 4,
-        hoverBackgroundColor: themeColor + '4d',
+        hoverBackgroundColor: themeColor,
         barThickness: 12,
       },
     ],

@@ -11,9 +11,9 @@ import movieImg from "../../assets/example_images/movie_db_example_1.png";
 import serverImg from "../../assets/example_images/http_server_example_1.png";
 import editorImg from "../../assets/example_images/text_editor_example_1.png";
 
-const SplitText = ({ text }) => (
+const SplitText = ({ text = "" }) => (
   <>
-  {text.split("").map((char, i) => (
+  {text && text.split("").map((char, i) => (
     <span key={i} className={`split-${text.toLowerCase()}-${i}`}>{char}</span>
   ))}
   </>
@@ -24,6 +24,8 @@ export default function HomePage() {
 
   return (
     <div className="home-page">
+      {/* Test Marker to ensure HomePage renders */}
+      <span style={{ display: 'none' }}>Home Ready</span>
       <section className="hero-section">
         <div className="hero-grid">
           <div className="hero-image-container mobile-only">
