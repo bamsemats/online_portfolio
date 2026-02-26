@@ -141,7 +141,6 @@ body {
   -webkit-text-fill-color: initial;
   background: none;
   opacity: 0.2;
-  transition: all 0.5s ease;
 }
 
 [data-theme='dark'] .static-bg .token-1 {
@@ -149,15 +148,15 @@ body {
 }
 
 @keyframes static-bg-float {
-  0% { left: 5%; top: 15vh; transform: scale(1); }
-  25%, 100% { left: 1%; top: 1.35rem; transform: scale(0.25); }
+  0% { left: 5vw; top: 15vh; transform: scale(1); }
+  100% { left: 1vw; top: 1.35rem; transform: scale(0.25); }
 }
 
 @media (min-width: 1050px) {
   .token-1 {
     font-size: 6rem;
-    animation: static-bg-float linear forwards;
-    animation-timeline: scroll();
+    animation: static-bg-float linear both;
+    animation-timeline: scroll(root);
   }
 }
 
