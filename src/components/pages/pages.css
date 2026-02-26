@@ -72,7 +72,6 @@
   height: 100%;
   object-fit: cover;
 }
-
 .hero-title {
   font-size: clamp(4.2rem, 11vw, 8rem);
   font-weight: 800;
@@ -102,16 +101,18 @@
   margin-left: 0.05em;
   text-shadow: 0px 2ex 0px var(--text-body);
   height: 1.1em;
+  width: auto;
   overflow: hidden;
   position: relative; /* Change from absolute to relative for safety */
-  display: inline-block;
+  display: inline-flex;
 }
 
 .experience-span > span {
   position: relative;
   display: inline-block;
   overflow: visible;
-  height: clamp(4.2rem, 11vw, 8rem);
+  width: auto;
+  height: clamp(4.2rem, 11vw, 10rem);
   padding-right: 0.05em;
   margin-left: -0.05em;
 }
