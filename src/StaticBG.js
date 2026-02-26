@@ -1,11 +1,36 @@
+import React from 'react';
+import { motion, useScroll, useTransform } from "framer-motion";
+
 export default function StaticBG(props) {
+  const { scrollYProgress } = useScroll();
+
+  // Map 0 -> 0.25 (first 25% of scroll) to the desired values
+  // This replaces the CSS animation-timeline and ensures cross-browser stability
+  const left = useTransform(scrollYProgress, [0, 0.25], ["5vw", "6vw"]);
+  const top = useTransform(scrollYProgress, [0, 0.25], ["12vh", "10vh"]);
+  const scale = useTransform(scrollYProgress, [0, 0.25], [1, 0.25]);
+
   return (
     <div className="static-bg">
-      <div className="token-1">{`{ ${props.current} }`}</div>
-      {/* <div className="token-2">{`<>`}</div>
-      <div className="token-3">{`^$`}</div>
-      <div className="token-4">{`=""`}</div>
-      <div className="token-5">{`@`}</div> */}
+      <motion.div 
+        className="token-1"
+        style={{
+          left,
+          top,
+          scale,
+          position: 'fixed',
+          zIndex: -1,
+          fontWeight: 900,
+          color: 'var(--token-color)',
+          WebkitTextFillColor: 'initial',
+          background: 'none',
+          opacity: 0.2,
+          fontSize: '6rem',
+          transformOrigin: 'left top' // Ensures scaling happens from the corner
+        }}
+      >
+        {`{ ${props.current} }`}
+      </motion.div>
     </div>
   );
 }

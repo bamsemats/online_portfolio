@@ -138,26 +138,15 @@ body {
   z-index: -1;
   font-weight: 900;
   color: var(--token-color);
-  -webkit-text-fill-color: initial;
-  background: none;
-  opacity: 0.2;
+}
+/* Static Background Tokens - Handled by Framer Motion */
+.static-bg .token-1 {
+  pointer-events: none;
+  user-select: none;
 }
 
 [data-theme='dark'] .static-bg .token-1 {
   opacity: 0.35;
-}
-
-@keyframes static-bg-float {
-  0% { left: 5vw; top: 15vh; transform: scale(1); }
-  100% { left: 1vw; top: 1.35rem; transform: scale(0.25); }
-}
-
-@media (min-width: 1050px) {
-  .token-1 {
-    font-size: 6rem;
-    animation: static-bg-float linear both;
-    animation-timeline: scroll(root);
-  }
 }
 
 /* Navigation Bar */

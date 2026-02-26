@@ -25,41 +25,45 @@ import textEditor1 from "../../assets/example_images/text_editor_example_1.png";
 import textEditor2 from "../../assets/example_images/text_editor_example_2.png";
 import textEditor3 from "../../assets/example_images/text_editor_example_3.png";
 
-//HTTP Server Example
+// HTTP Server Example
 import httpServerExample1 from "../../assets/example_images/http_server_example_1.png";
 import httpServerExample2 from "../../assets/example_images/http_server_example_2.png";
 import httpServerExample3 from "../../assets/example_images/http_server_example_3.png";
 
+// Translator Example
+import translatorExample1 from "../../assets/example_images/translator_example_1.png";
+import translatorExample2 from "../../assets/example_images/translator_example_2.png";
+
 const featuredProjects = [
   {
     id: 1,
-    title: "Modern Text Editor Interface",
-    description: "A sophisticated rich-text editor built on the Tiptap library. Features a highly configurable typewriting interface with real-time controls for typography, color systems, and structural formatting. Can be adjusted for the need of the application",
-    tech: ["React", "Tiptap", "CSS Modules", "Rich Text"],
-    link: "https://bamsemats.github.io/logbook/",
-    github: "https://github.com/bamsemats/logbook",
-    size: "large",
-    images: [textEditor1, textEditor2, textEditor3]
-  },
-  {
-    id: 2,
-    title: "Dota 2 Live Translator",
-    description: "A real-time utility for translating in-game chat. Utilizes local OCR for text extraction and integrates with the Google Translate API for automated language recognition and translation.",
-    tech: ["Python", "OCR", "Google API", "Real-time"],
-    link: "#",
-    github: "https://github.com/bamsemats/Dota2Translator",
-    size: "medium",
-    images: [] // Placeholder
-  },
-  {
-    id: 3,
     title: "Java Movie Database & GUI",
     description: "A Java-based desktop application for movie information searches and local database storage. Features a custom JavaFX GUI designed for efficient local data handling and relational database interaction.",
     tech: ["Java", "JavaFX", "MySQL DB", "OOP", "TMDB API", "Docker"],
     link: "#",
     github: "https://github.com/ithsjava25/project-jpa-project-jpa-grupp-2-d",
-    size: "medium",
+    size: "large",
     images: [movie1, movie2, movie3, movie4]
+  },
+  {
+    id: 2,
+    title: "Dota 2 Live Translator",
+    description: "A real-time utility for translating in-game chat. Utilizes local OCR for text extraction and integrates with the Google Translate API for automated language recognition and translation.",
+    tech: ["Python", "OCR", "Google API", "Real-time", "Work in progress"],
+    link: "#",
+    github: "https://github.com/bamsemats/Dota2Translator",
+    size: "medium",
+    images: [translatorExample1, translatorExample2]
+  },
+  {
+    id: 3,
+    title: "Modern Text Editor Interface",
+    description: "A sophisticated rich-text editor built on the Tiptap library. Features a highly configurable typewriting interface with real-time controls for typography, color systems, and structural formatting. Can be adjusted for the need of the application",
+    tech: ["React", "Tiptap", "CSS Modules", "Rich Text"],
+    link: "https://bamsemats.github.io/logbook/",
+    github: "https://github.com/bamsemats/logbook",
+    size: "medium",
+    images: [textEditor1, textEditor2, textEditor3]
   },
   {
     id: 4,
@@ -68,7 +72,7 @@ const featuredProjects = [
     tech: ["Java", "Sockets", "Networking", "Multithreading"],
     link: "https://juv25d.coolify.fungover.org/index.html",
     github: "#https://github.com/ithsjava25/project-webserver-juv25d",
-    size: "medium",
+    size: "large",
     images: [httpServerExample1, httpServerExample2, httpServerExample3] 
   }
 ];
@@ -106,7 +110,7 @@ export default function ProjectsPage() {
                   <ProjectImageSlider images={project.images} />
                 )}
                 <div className="tech-stack">
-                  {project.tech.map(t => <span key={t} className="tech-badge">{t}</span>)}
+                  {project.tech.map(t => <span key={t} className={`tech-badge ${t === "Work in progress" ? "wip-badge" : ""}`}>{t}</span>)}
                 </div>
               </div>
               <div className="project-body">

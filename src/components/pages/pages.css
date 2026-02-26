@@ -182,6 +182,14 @@
   flex-direction: column;
   gap: 0.8rem;
   width: fit-content;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.activity-chart-wrapper:hover {
+  border-color: rgba(var(--text-link-rgb), 1);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+
 }
 
 .chart-header {
@@ -423,6 +431,19 @@
 
 .tech-stack { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.5rem; }
 .tech-badge { background: rgba(var(--text-body-rgb), 0.05); color: var(--text-body-two); padding: 0.5rem 1rem; border-radius: 12px; font-size: 0.85rem; font-weight: 600; }
+.wip-badge { box-shadow: 0px 0px 10px rgba(var(--text-link-rgb), 0.4); animation: badge-blink 2.5s infinite }
+
+@keyframes badge-blink {
+  0% {
+    box-shadow: 0px 0px 10px rgba(var(--text-link-rgb), 0.4);
+  }
+  50% {
+    box-shadow: 0px 0px 10px rgba(var(--text-link-rgb), 0.6);;
+  }
+  100% {
+    box-shadow: 0px 0px 10px rgba(var(--text-link-rgb), 0.4);;
+  }
+}
 
 .project-links { display: flex; gap: 2.5rem; }
 .icon-link { display: flex; align-items: center; gap: 0.7rem; font-weight: 600; color: var(--text-body); transition: color 0.2s ease; font-size: 1.05rem; }
