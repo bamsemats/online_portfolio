@@ -4,11 +4,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 export default function StaticBG(props) {
   const { scrollYProgress } = useScroll();
 
-  // Map 0 -> 0.25 (first 25% of scroll) to the desired values
-  // This replaces the CSS animation-timeline and ensures cross-browser stability
-  const left = useTransform(scrollYProgress, [0, 0.25], ["5vw", "6vw"]);
-  const top = useTransform(scrollYProgress, [0, 0.25], ["12vh", "10vh"]);
-  const scale = useTransform(scrollYProgress, [0, 0.25], [1, 0.25]);
+  // Map 0 -> 0.25 (first 25% of scroll) to the desired values, and keep them there for the rest (up to 1)
+  const left = useTransform(scrollYProgress, [0, 0.25, 1], ["5vw", "6vw", "6vw"]);
+  const top = useTransform(scrollYProgress, [0, 0.25, 1], ["12vh", "10vh", "10vh"]);
+  const scale = useTransform(scrollYProgress, [0, 0.25, 1], [1, 0.25, 0.25]);
+  const opacity = useTransform(scrollYProgress, [0, 0.25, 1], [0.1, 0.25, 0.25]);
 
   return (
     <div className="static-bg">
@@ -24,7 +24,7 @@ export default function StaticBG(props) {
           color: 'var(--token-color)',
           WebkitTextFillColor: 'initial',
           background: 'none',
-          opacity: 0.2,
+          opacity,
           fontSize: '6rem',
           transformOrigin: 'left top' // Ensures scaling happens from the corner
         }}

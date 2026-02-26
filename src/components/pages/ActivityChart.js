@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -30,6 +30,7 @@ ChartJS.register(
 );
 
 const ActivityChart = () => {
+  const chartRef = useRef(null);
   const [commitData, setCommitData] = useState([]);
   const [totalCommits, setTotalCommits] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -47,10 +48,29 @@ const ActivityChart = () => {
   }, []);
 
   useEffect(() => {
-    // Safely get theme color after mount
-    const color = getComputedStyle(document.documentElement)
-      .getPropertyValue('--text-link').trim();
-    if (color) setThemeColor(color);
+    const updateThemeColor = () => {
+      const color = getComputedStyle(document.documentElement)
+        .getPropertyValue('--text-link').trim();
+      if (color) {
+        setThemeColor(color);
+        // Manually update chart if it exists
+        if (chartRef.current) {
+          const chart = chartRef.current;
+          chart.data.datasets[0].borderColor = color;
+          chart.data.datasets[1].backgroundColor = color;
+          chart.update();
+        }
+      }
+    };
+
+    // Initial set
+    updateThemeColor();
+
+    // We can also listen for theme changes if needed, but the current 
+    // App.js logic updates the DOM immediately which this will pick up on re-render.
+    // To be extra safe, we'll use a MutationObserver to detect theme changes on the html tag
+    const observer = new MutationObserver(updateThemeColor);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'style'] });
 
     const fetchGithubActivity = async () => {
       try {
@@ -87,6 +107,9 @@ const ActivityChart = () => {
     };
 
     fetchGithubActivity();
+
+    // Clean up observer
+    return () => observer.disconnect();
   }, []);
 
   const data = {
@@ -102,9 +125,11 @@ const ActivityChart = () => {
         tension: 0.4,
         fill: true,
         backgroundColor: (context) => {
-          const ctx = context.chart.ctx;
-          const gradient = ctx.createLinearGradient(0, 0, 0, 100);
-          gradient.addColorStop(0, themeColor); // use solid color but let alpha handle it? no, simpler:
+          const chart = context.chart;
+          const { ctx, chartArea } = chart;
+          if (!chartArea) return null;
+          const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+          gradient.addColorStop(0, themeColor); 
           gradient.addColorStop(1, 'transparent');
           return gradient;
         },
@@ -151,7 +176,7 @@ const ActivityChart = () => {
         <span className="chart-stat">{loading ? '...' : `${totalCommits} Commits`}</span>
       </div>
       <div style={{ height: '80px', width: '240px' }}>
-        <Chart type='bar' data={data} options={options} />
+        <Chart ref={chartRef} type='bar' data={data} options={options} />
       </div>
     </div>
   );

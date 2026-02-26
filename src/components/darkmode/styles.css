@@ -1,6 +1,7 @@
 .darkmode-container {
   display: flex;
   flex-direction: column;
+  flex-direction: row;
 }
 
 .darkmode-div {

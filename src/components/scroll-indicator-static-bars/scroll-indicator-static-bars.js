@@ -8,6 +8,7 @@ import { IoMdMenu } from "react-icons/io";
 export default function ScrollIndicatorStaticBars({
   click,
   darkTheme,
+  onRandomize,
   menuToggle,
   menuState,
 }) {
@@ -72,6 +73,7 @@ export default function ScrollIndicatorStaticBars({
             className="darkmode-button"
             darkTheme={darkTheme}
             click={click}
+            onRandomize={onRandomize}
           />
         </div>
       </div>

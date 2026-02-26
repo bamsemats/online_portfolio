@@ -21,8 +21,50 @@ function App() {
 
   // Sync theme with document element for global CSS access
   useEffect(() => {
+    if (theme === 'custom') {
+      const customColors = JSON.parse(localStorage.getItem('custom-theme-colors'));
+      if (customColors) {
+        Object.entries(customColors).forEach(([key, value]) => {
+          document.documentElement.style.setProperty(key, value);
+        });
+        document.documentElement.setAttribute('data-theme', 'custom');
+        return;
+      }
+    }
+    
+    // Clear custom styles when switching back to presets
+    document.documentElement.removeAttribute('style');
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
+
+  const generateRandomTheme = () => {
+    const hue = Math.floor(Math.random() * 360);
+    
+    // Procedural generation based on HSL
+    const colors = {
+      '--bg-main': `hsl(${hue}, 30%, 5%)`,
+      '--bg-panel': `hsl(${hue}, 25%, 8%)`,
+      '--text-heading': `hsl(${hue}, 10%, 95%)`,
+      '--text-body': `hsl(${hue}, 10%, 75%)`,
+      '--text-link': `hsl(${hue}, 80%, 60%)`,
+      '--text-body-two': `hsl(${(hue + 40) % 360}, 70%, 60%)`,
+      '--btn-bg': `hsl(${hue}, 80%, 60%)`,
+      '--btn-text': `hsl(${hue}, 30%, 5%)`,
+      '--border-subtle': `hsla(${hue}, 10%, 100%, 0.1)`,
+      '--token-color': `hsl(${hue}, 80%, 60%)`,
+      '--theme-id': Date.now() // Force a change even if hue is same
+    };
+
+    localStorage.setItem('custom-theme-colors', JSON.stringify(colors));
+    
+    // Force a re-trigger if already custom by temporarily setting to something else or just toggling a signal
+    if (theme === 'custom') {
+      setTheme('custom-sync'); // Temporary state to trigger useEffect
+      setTimeout(() => setTheme('custom'), 10);
+    } else {
+      setTheme('custom');
+    }
+  };
 
   function handleMenuClick() {
     setMenuListOpen((prev) => !prev);
@@ -44,6 +86,7 @@ function App() {
       <ScrollIndicatorStaticBars
         darkTheme={theme}
         click={handleToggle}
+        onRandomize={generateRandomTheme}
         menuToggle={handleMenuClick}
         menuState={menuListOpen}
       />
