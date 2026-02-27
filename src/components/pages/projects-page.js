@@ -25,20 +25,26 @@ import textEditor1 from "../../assets/example_images/text_editor_example_1.png";
 import textEditor2 from "../../assets/example_images/text_editor_example_2.png";
 import textEditor3 from "../../assets/example_images/text_editor_example_3.png";
 
-// HTTP Server Example
+// HTTP Server Images
 import httpServerExample1 from "../../assets/example_images/http_server_example_1.png";
 import httpServerExample2 from "../../assets/example_images/http_server_example_2.png";
 import httpServerExample3 from "../../assets/example_images/http_server_example_3.png";
 
-// Translator Example
+// Translator Images
 import translatorExample1 from "../../assets/example_images/translator_example_1.png";
 import translatorExample2 from "../../assets/example_images/translator_example_2.png";
+
+// Pathfinder Images
+import pathfinderExample1 from "../../assets/example_images/pathfinder_example_1.png";
+import pathfinderExample2 from "../../assets/example_images/pathfinder_example_2.png";
+import pathfinderExample3 from "../../assets/example_images/pathfinder_example_3.png";
+import pathfinderExample4 from "../../assets/example_images/pathfinder_example_4.png";
 
 const featuredProjects = [
   {
     id: 1,
     title: "Java Movie Database & GUI",
-    description: "A Java-based desktop application for movie information searches and local database storage. Features a custom JavaFX GUI designed for efficient local data handling and relational database interaction.",
+    description: "A Java-based desktop application for movie information searches and local database storage. Features a custom JavaFX GUI designed for efficient local data handling and relational database interaction. Built as a collaborative school project, it allows the user to search The Movie Database through their API to populate a local database. Movie can then be browsed, added to favorites, and their IMDB page can be visited from a link in the app.",
     tech: ["Java", "JavaFX", "MySQL DB", "OOP", "TMDB API", "Docker"],
     link: "#",
     github: "https://github.com/ithsjava25/project-jpa-project-jpa-grupp-2-d",
@@ -71,9 +77,19 @@ const featuredProjects = [
     description: "A custom-built server implementation exploring the fundamentals of the HTTP protocol. Handles concurrent requests via socket programming and serves both static and dynamic content from a local directory.",
     tech: ["Java", "Sockets", "Networking", "Multithreading"],
     link: "https://juv25d.coolify.fungover.org/index.html",
-    github: "#https://github.com/ithsjava25/project-webserver-juv25d",
+    github: "https://github.com/ithsjava25/project-webserver-juv25d",
     size: "large",
     images: [httpServerExample1, httpServerExample2, httpServerExample3] 
+  },
+  {
+    id: 5,
+    title: "Pathfinder Visualizer",
+    description: "A custom-built server implementation exploring the fundamentals of the HTTP protocol. Handles concurrent requests via socket programming and serves both static and dynamic content from a local directory.",
+    tech: ["React", "Vite", "Framer Motion", "Lucide"],
+    link: "https://bamsemats.github.io/pathfinding-visualizer/",
+    github: "https://github.com/bamsemats/pathfinding-visualizer",
+    size: "large",
+    images: [pathfinderExample1, pathfinderExample2, pathfinderExample3, pathfinderExample4] 
   }
 ];
 

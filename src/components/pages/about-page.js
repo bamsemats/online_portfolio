@@ -3,7 +3,7 @@ import "./pages.css";
 import {
   SiReact, SiJavascript, SiHtml5, SiCss3,
   SiMongodb,
-  SiGit, SiDocker, SiIntellijidea, SiGooglegemini
+  SiGit, SiDocker, SiIntellijidea, SiGooglegemini, SiVite
 } from "react-icons/si";
 
 import {
@@ -38,6 +38,7 @@ const skills = [
   ]},
   { category: "Tools", icons: [
     { name: "Git", icon: <SiGit />, code: "git commit -m 'feat: update';" , slogan: "Version control for the modern age."},
+    { name: "Vite", icon: <SiVite />, code: "npm create vite@latest", slogan: "Next-generation frontend tooling." },
     { name: "Docker", icon: <SiDocker />, code: "docker-compose up -d" , slogan: "Package once, run anywhere."},
     { name: "IntelliJ", icon: <SiIntellijidea />, code: "Java and Kotlin IDE" , slogan: "The premier Java development environment."},
     { name: "VsCode", icon: <VscVscodeInsiders />, code: "AI-Powered code editor" , slogan: "Lean, fast, and infinitely extensible."},
