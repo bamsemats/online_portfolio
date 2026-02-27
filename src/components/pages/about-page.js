@@ -3,7 +3,7 @@ import "./pages.css";
 import {
   SiReact, SiJavascript, SiHtml5, SiCss3,
   SiMongodb,
-  SiGit, SiDocker, SiIntellijidea, SiGooglegemini, SiVite
+  SiGit, SiDocker, SiIntellijidea, SiGooglegemini, SiVite, SiDatagrip
 } from "react-icons/si";
 
 import {
@@ -41,6 +41,7 @@ const skills = [
     { name: "Vite", icon: <SiVite />, code: "npm create vite@latest", slogan: "Next-generation frontend tooling." },
     { name: "Docker", icon: <SiDocker />, code: "docker-compose up -d" , slogan: "Package once, run anywhere."},
     { name: "IntelliJ", icon: <SiIntellijidea />, code: "Java and Kotlin IDE" , slogan: "The premier Java development environment."},
+    { name: "DataGrip", icon: <SiDatagrip />, code: "Database-focused IDE" , slogan: "JetBrains for Data - SQL IDE."},
     { name: "VsCode", icon: <VscVscodeInsiders />, code: "AI-Powered code editor" , slogan: "Lean, fast, and infinitely extensible."},
     { name: "Node.js", icon: <FaNodeJs />, code: "npm run dev", slogan: "JavaScript everywhere, anytime." },
     { name: "CI/CD", icon: <GoIssueReopened />, code: "build:\n  runs-on: ubuntu-latest\n  steps:\n    - uses: actions/checkout@v5" , slogan: "Automate everything, release with confidence."},
