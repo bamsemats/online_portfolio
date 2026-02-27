@@ -1,190 +1,129 @@
 import "./hangman.css";
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Banner from "./Components/banner";
 import Keyboard from "./Components/keyboard";
 import Languages from "./Components/languages";
 import Letterboxes from "./Components/letterboxes";
-import Button from "./Components/button";
+
+const ALPHABET = "abcdefghijklmnopqrstuvwxyz".split("");
+const LANGUAGES = [
+  "HTML", "CSS", "JavaScript", "React", "TypeScript", "Node", "Python", "Ruby"
+];
 
 function HangMan() {
-  const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
   const [randomWord, setRandomWord] = useState("");
-  const [wordArray, setWordArray] = useState(wordToArray(randomWord));
-  const [guesses, setGuesses] = useState(() => generateAlphabetArray(alphabet));
+  const [wordArray, setWordArray] = useState([]);
+  const [guesses, setGuesses] = useState(() => generateAlphabetArray(ALPHABET));
   const [incorrectGuesses, setIncorrectGuesses] = useState(0);
-  const [gameOver, setGameOver] = useState(false);
-  const [aNewGame, setANewGame] = useState(false);
+  const [isNewGameLoading, setIsNewGameLoading] = useState(false);
   const [victory, setVictory] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
 
-  const languages = [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "React",
-    "TypeScript",
-    "Node",
-    "Python",
-    "Ruby",
-    "Assembly",
-  ];
-
-  function wordToArray(word) {
-    const array = word.split("");
-    const result = array.map((letter) => ({
-      value: letter,
-      found: false,
-    }));
-    return result;
-  }
-
-  function generateAlphabetArray(item) {
-    return item.map((prev) => ({
-      value: prev,
+  function generateAlphabetArray(items) {
+    return items.map((item) => ({
+      value: item,
       isGuessed: false,
       isCorrect: null,
     }));
   }
 
-  async function fetchWord() {
+  async function getNewWord() {
+    setIsNewGameLoading(true);
+    // Reset states immediately to avoid flickering/stale states
+    setGuesses(generateAlphabetArray(ALPHABET));
+    setIncorrectGuesses(0);
+    setVictory(false);
+    setGameOver(false);
+
     try {
-      const response = await fetch(
-        `https://random-word-api.vercel.app/api?words=1`
-      );
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status ${response.status}`);
-      }
+      // Using a different endpoint or specific query for better reliability
+      const response = await fetch("https://random-word-api.herokuapp.com/word");
       const data = await response.json();
-      // console.log('API Response', data);
-      return data;
+      const word = Array.isArray(data) ? data[0].toLowerCase() : data.toLowerCase();
+      
+      setRandomWord(word);
+      setWordArray(word.split("").map(char => ({ value: char, found: false })));
     } catch (error) {
-      console.error("Error fetching data:", error);
-      return null;
+      console.error("Fetch error, using fallback:", error);
+      const fallbacks = ["javascript", "programming", "developer", "frontend", "react", "component"];
+      const fallback = fallbacks[Math.floor(Math.random() * fallbacks.length)];
+      setRandomWord(fallback);
+      setWordArray(fallback.split("").map(char => ({ value: char, found: false })));
+    } finally {
+      setIsNewGameLoading(false);
     }
   }
 
   useEffect(() => {
-    async function getWord() {
-      const data = await fetchWord();
-
-      if (data) {
-        console.log("Fetched word:", data);
-        setRandomWord(data[0]);
-        console.log(randomWord);
-      } else {
-        console.log("No data received. The API might be down.");
-      }
-    }
-    getWord();
+    getNewWord();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [aNewGame]);
-
-  // useEffect(() => {
-  //   console.log("Current state of guesses:", guesses);
-  // }, [guesses]);
-
-  useEffect(() => {
-    incorrectGuesses === 8 ? setGameOver(true) : setGameOver(false);
-  }, [incorrectGuesses]);
+  }, []);
 
   function makeGuess(event) {
-    const newGuesses = guesses.map((prev) => {
-      if (prev.value === event.target.id && randomWord.includes(prev.value)) {
-        return {
-          ...prev,
-          isGuessed: true,
-          isCorrect: true,
-        };
-      } else if (
-        prev.value === event.target.id &&
-        !randomWord.includes(prev.value)
-      ) {
-        setIncorrectGuesses((prev) => prev + 1);
-        return {
-          ...prev,
-          isGuessed: true,
-          isCorrect: false,
-        };
-      } else {
-        return {
-          ...prev,
-        };
-      }
-    });
-    setGuesses(newGuesses);
-    const newLetter = wordArray.map((prev) => {
-      if (prev.value === event.target.id) {
-        return {
-          ...prev,
-          found: true,
-        };
-      } else {
-        return {
-          ...prev,
-        };
-      }
-    });
-    setWordArray(newLetter);
-  }
+    const letter = event.target.id;
+    if (!letter || victory || gameOver) return;
 
-  useEffect(() => {
-    const result = wordArray.map((object) => object.found);
+    const isCorrect = randomWord.includes(letter);
+    
+    setGuesses(prev => prev.map(g => 
+      g.value === letter ? { ...g, isGuessed: true, isCorrect } : g
+    ));
 
-    if (result.length > 1) {
-      console.log(result);
-    } else return;
-
-    if (!result.includes(false) && result.length > 1) {
-      setVictory(true);
+    if (isCorrect) {
+      setWordArray(prev => prev.map(char => 
+        char.value === letter ? { ...char, found: true } : char
+      ));
     } else {
-      return; // console.log('nay');
+      setIncorrectGuesses(prev => prev + 1);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [guesses]);
-
-  useEffect(() => {
-    console.log("Victory Changed", victory);
-  }, [victory]);
-
-  function newGame() {
-    setIncorrectGuesses(0);
-    setANewGame((prev) => !prev);
-    setGuesses(() => generateAlphabetArray(alphabet));
-    setVictory(false);
-    setWordArray([]);
   }
 
   useEffect(() => {
-    setWordArray(wordToArray(randomWord));
-  }, [randomWord]);
+    if (incorrectGuesses >= LANGUAGES.length) {
+      setGameOver(true);
+    }
+  }, [incorrectGuesses]);
+
+  useEffect(() => {
+    if (wordArray.length > 0 && wordArray.every(char => char.found)) {
+      setVictory(true);
+    }
+  }, [wordArray]);
 
   return (
-    <div className="app-container hangman-wrapper bento-hangman">
-      <span className="title-text">Hangman</span>
-      <div className="hangman-container">
-        <div className="title box">
-          <h3>Assembly: Endgame</h3>
-          <p>
-            Guess the word in under eight attempts to keep the programming world
-            safe from Assembly!
-          </p>
+    <div className="lab-widget-container bento-hangman">
+      <div className="widget-header-row">
+        <h4 className="widget-title">Assembly Endgame</h4>
+        <button 
+          className="reset-btn" 
+          onClick={getNewWord}
+          disabled={isNewGameLoading}
+        >
+          {isNewGameLoading ? "Loading..." : "New Game"}
+        </button>
+      </div>
+
+      <div className="hangman-game-layout">
+        <Banner game={incorrectGuesses} lan={LANGUAGES} victory={victory} />
+        
+        <div className="languages-track">
+          <p className="label">Stack at Risk</p>
+          <Languages lan={LANGUAGES} inc={incorrectGuesses} />
         </div>
-        <Banner game={incorrectGuesses} lan={languages} victory={victory} />
-        <div className="code-collection box">
-          <Languages lan={languages} inc={incorrectGuesses} />
-        </div>
-        <div className="letter-boxes box">
+
+        <div className="word-reveal-area">
           <Letterboxes word={wordArray} gameOver={gameOver} />
         </div>
-        <div className="keyboard box">
-          <Keyboard
-            alphabet={alphabet}
-            click={gameOver ? null : victory ? null : makeGuess}
-            guess={guesses}
+
+        <div className="interaction-area">
+          <Keyboard 
+            alphabet={ALPHABET} 
+            click={makeGuess} 
+            guess={guesses} 
             gameOver={gameOver}
+            victory={victory}
           />
-        </div>
-        <div className="new-game box">
-          <Button click={newGame} />
         </div>
       </div>
     </div>

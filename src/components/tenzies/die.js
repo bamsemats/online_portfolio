@@ -1,15 +1,21 @@
-export default function Die(props) {
+import { motion } from "framer-motion";
+
+export default function Die({ value, toggle, id, on }) {
   return (
-    <div className="die">
-      <button
-        className={props.on ? "Off" : "On"}
-        onClick={() => {
-          props.toggle(props.id);
-        }}
-        id={props.id}
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className={`die-container ${on ? "held" : ""}`}
+      onClick={() => toggle(id)}
+    >
+      <motion.span 
+        key={value}
+        initial={{ rotateX: -90, opacity: 0 }}
+        animate={{ rotateX: 0, opacity: 1 }}
+        className="die-value"
       >
-        {props.value}
-      </button>
-    </div>
+        {value}
+      </motion.span>
+    </motion.div>
   );
 }

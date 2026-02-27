@@ -1,7 +1,146 @@
 .darkmode-container {
   display: flex;
-  flex-direction: column;
   flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Theme Exporter Styles */
+.theme-exporter-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.exporter-toggle-btn {
+  background: var(--bg-panel);
+  border: 2px solid var(--border-subtle);
+  color: var(--text-body);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.exporter-toggle-btn svg {
+  width: 16px !important;
+  height: 16px !important;
+  stroke: currentColor !important;
+  stroke-width: 2.5;
+  fill: none;
+  flex-shrink: 0;
+  display: block;
+}
+
+.exporter-toggle-btn:hover {
+  background: var(--text-link);
+  color: var(--text-heading);
+  border-color: var(--text-link);
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(var(--text-link-rgb), 0.2);
+}
+
+.exporter-modal {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 320px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  z-index: 1001;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.exporter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.exporter-header h5 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-body);
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: var(--text-link);
+}
+
+.css-preview {
+  background: rgba(var(--text-body-rgb), 0.03);
+  padding: 1rem;
+  border-radius: 10px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  max-height: 250px;
+  overflow-y: auto;
+  margin: 0;
+  border: 1px solid var(--border-subtle);
+}
+
+.css-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.css-key { color: var(--text-link); font-weight: 600; }
+.css-value { color: var(--text-body); }
+
+.color-preview-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.copy-btn {
+  width: 100%;
+  background: var(--text-link);
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.copy-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
 }
 
 .darkmode-div {

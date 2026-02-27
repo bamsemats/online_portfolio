@@ -1,50 +1,74 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiFolder, FiFile, FiChevronRight, FiChevronDown } from "react-icons/fi";
 import { data } from "./data";
 import "./styles.css";
 
-export default function TreeView() {
-  const [expandChild, setExpandChild] = useState({});
-
-  function renderData(data, parentPath = "") {
-    return data.map((item) => {
-      const path = parentPath ? `${parentPath}/${item.name}` : item.name;
-
-      return (
-        <div key={path} className="menu-item">
-          <div className="menu-parent">
-            <p onClick={() => handleClick(path)}>{item.name}</p>
-            {item.content && (
-              <button
-                className="expand-button"
-                onClick={() => handleClick(path)}
-              >
-                {expandChild[path] ? "-" : "+"}
-              </button>
-            )}
-          </div>
-          {item.content && Array.isArray(item.content) && expandChild[path] && (
-            <div className="menu-child">{renderData(item.content, path)}</div>
-          )}
-        </div>
-      );
-    });
-  }
-
-  function handleClick(path) {
-    setExpandChild((prev) => ({
-      ...prev,
-      [path]: !prev[path],
-    }));
-  }
-
-  /*
-  expandChild is an object (?) that contains keys representing each rendered element. When user clicks the expand button, the object has a key added with a boolean value (true/false). If the key exists, it toggles the boolean value. Child items in each element are set to be shown also and ONLY if expandChild's containing object has a key value of true correlating to the element's name (i.e. item.name).
-  */
+const TreeItem = ({ item, depth = 0 }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const hasChildren = item.content && Array.isArray(item.content);
 
   return (
-    <div className="app-container bento-tree-view">
-      <span className="title-text">Recursive Tree View Menu</span>
-      <div className="tree-view-container">{renderData(data)}</div>
+    <div className="tree-item-wrapper" style={{ marginLeft: depth > 0 ? "1.5rem" : "0" }}>
+      <motion.div 
+        className={`tree-node ${hasChildren ? "parent" : "leaf"} ${isOpen ? "open" : ""}`}
+        onClick={() => hasChildren && setIsOpen(!isOpen)}
+        whileHover={{ x: 4 }}
+      >
+        <div className="node-content">
+          <span className="node-icon">
+            {hasChildren ? (
+              isOpen ? <FiChevronDown /> : <FiChevronRight />
+            ) : (
+              <FiFile className="file-icon" />
+            )}
+          </span>
+          {hasChildren && <FiFolder className={`folder-icon ${isOpen ? "open" : ""}`} />}
+          <span className="node-label">{item.name}</span>
+        </div>
+      </motion.div>
+
+      <AnimatePresence>
+        {hasChildren && isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="tree-children"
+          >
+            {item.content.map((child, idx) => (
+              <TreeItem key={`${child.name}-${idx}`} item={child} depth={depth + 1} />
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+export default function TreeView() {
+  return (
+    <div className="lab-widget-container bento-tree-view">
+      <div className="widget-header-row">
+        <h4 className="widget-title">Recursive Structure Explorer</h4>
+        <div className="status-pill">JSON Driven</div>
+      </div>
+
+      <div className="tree-explorer-surface">
+        <div className="explorer-header">
+          <div className="explorer-dots">
+            <span className="dot red"></span>
+            <span className="dot yellow"></span>
+            <span className="dot green"></span>
+          </div>
+          <span className="explorer-title">root_directory</span>
+        </div>
+        <div className="tree-content">
+          {data.map((item, idx) => (
+            <TreeItem key={`${item.name}-${idx}`} item={item} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

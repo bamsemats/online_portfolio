@@ -1,6 +1,7 @@
 import "./styles.css";
 import { HiPaintBrush } from "react-icons/hi2";
 import RandomThemeWheel from "./RandomThemeWheel";
+import ThemeExporter from "./ThemeExporter";
 
 export default function DarkMode({ darkTheme, click, onRandomize }) {
   // Mapping internal keys to display labels
@@ -13,7 +14,7 @@ export default function DarkMode({ darkTheme, click, onRandomize }) {
   };
 
   return (
-    <div className="darkmode-container" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+    <div className="darkmode-container">
       <div className="darkmode-div">
         <p className="theme-label">
           {themeLabels[darkTheme] || "Theme"}
@@ -29,6 +30,7 @@ export default function DarkMode({ darkTheme, click, onRandomize }) {
         </button>
       </div>
       <RandomThemeWheel onRandomize={onRandomize} />
+      <ThemeExporter />
     </div>
   );
 }

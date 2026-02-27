@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiPlus, FiMinus } from "react-icons/fi";
 import data from "./data";
 import "./styles.css";
 
@@ -17,45 +19,61 @@ export default function Accordian() {
     }
   }
 
-  function enableMultiple() {
-    setMultipleEnabled((prev) => !prev);
+  function toggleMode() {
+    setMultipleEnabled(!multipleEnabled);
     setSelected(null);
     setMultipleSelected([]);
   }
 
+  const isSelected = (id) => 
+    multipleEnabled ? multipleSelected.includes(id) : selected === id;
+
   return (
-    <div className="app-container bento-accordian">
-      <span className="title-text">Single or Multiple Accordians</span>
-      <div className="accordian-wrapper">
+    <div className="lab-widget-container bento-accordian">
+      <div className="widget-header-row">
+        <h4 className="widget-title">Interactive Accordion</h4>
         <button
-          className={`enable-button ${
-            multipleEnabled ? "multiple-enabled" : ""
-          }`}
-          onClick={enableMultiple}
+          className={`mode-toggle-btn ${multipleEnabled ? "active" : ""}`}
+          onClick={toggleMode}
         >
-          {multipleEnabled ? "Disable" : "Enable"} multiple selection
+          {multipleEnabled ? "Multi-Select On" : "Single-Select Only"}
         </button>
-        {data.map((object) => (
-          <div
-            key={object.id}
-            id={object.id}
-            className="accordian-container"
-            onClick={() => handleClick(object.id)}
-          >
-            <div className="question-container">
-              <span className="accordian-question">{object.question}</span>{" "}
-              {selected === object.id ||
-              multipleSelected.includes(object.id) ? (
-                <span className="right-sign">-</span>
-              ) : (
-                <span className="right-sign">+</span>
-              )}
+      </div>
+
+      <div className="accordian-list">
+        {data.map((item) => {
+          const active = isSelected(item.id);
+          return (
+            <div
+              key={item.id}
+              className={`accordian-item ${active ? "active" : ""}`}
+              onClick={() => handleClick(item.id)}
+            >
+              <div className="accordian-header">
+                <span className="question">{item.question}</span>
+                <span className="icon-wrapper">
+                  {active ? <FiMinus /> : <FiPlus />}
+                </span>
+              </div>
+              
+              <AnimatePresence>
+                {active && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="accordian-content-wrapper"
+                  >
+                    <div className="accordian-content">
+                      {item.answer}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
-            {selected === object.id || multipleSelected.includes(object.id) ? (
-              <div className="accordian-inner-container">{object.answer}</div>
-            ) : null}
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

@@ -453,59 +453,97 @@
 .lab-section {
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 3rem;
+  width: 100%;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-body);
+  opacity: 0.7;
+  max-width: 800px;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
 .lab-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  max-width: 1100px;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
 }
 
 .lab-item {
-  padding: 1.5rem 2.8rem;
+  padding: 1.5rem;
   background: var(--bg-panel);
   border: 1px solid var(--border-subtle);
-  border-radius: 18px;
+  border-radius: 20px;
   cursor: pointer;
-  font-weight: 600;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  color: var(--text-body);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-.lab-item:hover, .lab-item.active {
-  background: var(--text-link);
-  color: #fff;
+.lab-item:hover {
+  transform: translateY(-5px);
   border-color: var(--text-link);
-  transform: translateY(-4px);
   box-shadow: var(--shadow-md);
+}
+
+.lab-item.active {
+  background: rgba(var(--text-link-rgb), 0.05);
+  border-color: var(--text-link);
+  box-shadow: inset 0 0 20px rgba(var(--text-link-rgb), 0.05);
+}
+
+.lab-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.lab-desc {
+  font-size: 0.85rem;
+  color: var(--text-body);
+  opacity: 0.6;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.lab-item.active .lab-name {
+  color: var(--text-link);
 }
 
 /* Lab Viewport (The Workbench) */
 .lab-viewport {
   width: 100%;
-  min-height: 750px;
+  min-height: 600px;
   background: var(--bg-panel);
   border: 1px solid var(--border-subtle);
-  border-radius: 48px;
+  border-radius: 32px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   position: relative;
   overflow: hidden;
   box-shadow: var(--shadow-lg);
+  margin-top: 2rem;
 }
 
 .viewport-placeholder {
-  opacity: 0.3;
-  font-size: 1.5rem;
-  font-weight: 500;
-  text-align: center;
-  max-width: 450px;
-  line-height: 1.6;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  opacity: 0.4;
+  padding: 4rem;
+}
+
+.placeholder-icon {
+  font-size: 3rem;
+  color: var(--text-link);
 }
 
 .viewport-content {
@@ -516,30 +554,62 @@
 }
 
 .viewport-header {
-  padding: 3rem 4rem;
+  padding: 1.5rem 2.5rem;
   border-bottom: 1px solid var(--border-subtle);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: rgba(var(--text-body-rgb), 0.02);
 }
 
-.viewport-header h3 { font-size: 1.5rem; opacity: 0.8; font-weight: 600; }
+.viewport-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.live-indicator {
+  width: 10px;
+  height: 10px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #22c55e;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.5; }
+}
+
+.viewport-header h3 { 
+  font-size: 1.1rem; 
+  font-weight: 700; 
+  margin: 0;
+  color: var(--text-heading);
+}
 
 .clear-btn {
   background: var(--bg-main);
   border: 1px solid var(--border-subtle);
-  padding: 0.75rem 1.6rem;
-  border-radius: 14px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
   color: var(--text-body);
   font-weight: 600;
   cursor: pointer;
+  font-size: 0.85rem;
   transition: all 0.2s ease;
 }
 
-.clear-btn:hover { background: var(--text-heading); color: var(--bg-main); border-color: var(--text-heading); }
+.clear-btn:hover {
+  background: var(--text-heading);
+  color: var(--bg-main);
+  border-color: var(--text-heading);
+}
 
 .widget-wrapper {
-  padding: 5rem;
+  padding: 3rem 1.5rem;
   flex: 1;
   display: flex;
   justify-content: center;
@@ -547,17 +617,9 @@
   overflow-y: auto;
 }
 
-/* Fix for existing widgets inside the wrapper */
-.widget-wrapper .app-container {
-  box-shadow: none !important;
-  background: transparent !important;
-  width: 100% !important;
-  min-width: unset !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Clear title-text from old widgets as we have header now */
+.widget-wrapper .title-text {
+  display: none !important;
 }
 
 /* About & Contact Page Content Layout */

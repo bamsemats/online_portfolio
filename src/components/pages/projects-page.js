@@ -58,7 +58,7 @@ const featuredProjects = [
   {
     id: 3,
     title: "Modern Text Editor Interface",
-    description: "A sophisticated rich-text editor built on the Tiptap library. Features a highly configurable typewriting interface with real-time controls for typography, color systems, and structural formatting. Can be adjusted for the need of the application",
+    description: "A sophisticated rich-text editor built on the Tiptap library. Features a highly configurable typewriting interface with real-time controls for typography, color systems, and structural formatting. Can be adjusted for the need of the application.",
     tech: ["React", "Tiptap", "CSS Modules", "Rich Text"],
     link: "https://bamsemats.github.io/logbook/",
     github: "https://github.com/bamsemats/logbook",
@@ -78,14 +78,14 @@ const featuredProjects = [
 ];
 
 const labComponents = [
-  { id: 'accordian', name: 'Accordian', component: <Accordian /> },
-  { id: 'hangman', name: 'Hangman', component: <HangMan /> },
-  { id: 'random-color', name: 'Random Color', component: <RandomColor /> },
-  { id: 'stars', name: 'Star Rating', component: <Stars /> },
-  { id: 'image-slider', name: 'Image Slider', component: <ImageSlider /> },
-  { id: 'tree-view', name: 'TreeView', component: <TreeView /> },
-  { id: 'tenzies', name: 'Tenzies', component: <Tenzies /> },
-  { id: 'load-more', name: 'Load More', component: <LoadMore /> },
+  { id: 'accordian', name: 'Accordian', component: <Accordian />, desc: "Smooth animated collapsible sections." },
+  { id: 'hangman', name: 'Hangman', component: <HangMan />, desc: "Word guessing game with API integration." },
+  { id: 'random-color', name: 'Random Color', component: <RandomColor />, desc: "Procedural HEX/RGB generator." },
+  { id: 'stars', name: 'Star Rating', component: <Stars />, desc: "Interactive feedback system." },
+  { id: 'image-slider', name: 'Image Slider', component: <ImageSlider />, desc: "Dynamic content carousel." },
+  { id: 'tree-view', name: 'TreeView', component: <TreeView />, desc: "Recursive file explorer UI." },
+  { id: 'tenzies', name: 'Tenzies', component: <Tenzies />, desc: "Fast-paced dice matching game." },
+  { id: 'load-more', name: 'Load More', component: <LoadMore />, desc: "Asynchronous data pagination." },
 ];
 
 export default function ProjectsPage() {
@@ -131,7 +131,7 @@ export default function ProjectsPage() {
 
       <section className="lab-section">
         <h2 className="section-title">Component Lab</h2>
-        <p className="section-subtitle">Basic interactive UI widgets and logic experiments built to practice React fundamentals.</p>
+        <p className="section-subtitle">A sandbox of modular UI components and logic experiments. Each widget is built from scratch to explore React's state, effects, and animation patterns.</p>
         
         <div className="lab-grid">
           {labComponents.map((item) => (
@@ -140,13 +140,15 @@ export default function ProjectsPage() {
               className={`lab-item ${activeLab === item.id ? 'active' : ''}`}
               onClick={() => {
                 setActiveLab(item.id);
-                // Smooth scroll to viewport on mobile
                 if (window.innerWidth < 768) {
                   document.getElementById('lab-viewport').scrollIntoView({ behavior: 'smooth' });
                 }
               }}
             >
-              {item.name}
+              <div className="lab-item-header">
+                <span className="lab-name">{item.name}</span>
+              </div>
+              <p className="lab-desc">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -155,8 +157,11 @@ export default function ProjectsPage() {
           {activeWidget ? (
             <div className="viewport-content">
               <div className="viewport-header">
-                <h3>{activeWidget.name} Preview</h3>
-                <button className="clear-btn" onClick={() => setActiveLab(null)}>Reset View</button>
+                <div className="viewport-info">
+                  <span className="live-indicator"></span>
+                  <h3>{activeWidget.name} Workbench</h3>
+                </div>
+                <button className="clear-btn" onClick={() => setActiveLab(null)}>Close Workbench</button>
               </div>
               <div className="widget-wrapper">
                 {activeWidget.component}
@@ -164,7 +169,8 @@ export default function ProjectsPage() {
             </div>
           ) : (
             <div className="viewport-placeholder">
-              <p>Select a component from the lab above to interact with it here.</p>
+              <div className="placeholder-icon"><BsBoxArrowUpRight /></div>
+              <p>Select a module from the lab to initialize the workbench.</p>
             </div>
           )}
         </div>

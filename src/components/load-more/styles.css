@@ -1,68 +1,167 @@
-.load-more-container {
-  position: relative;
-}
-.load-more-div {
-  margin-top: 16px;
-  width: 100%;
+.bento-load-more {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.header-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.count-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.refresh-icon-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  overflow: auto; 
+  cursor: pointer;
+  transition: all 0.2s;
 }
-.load-more-title-text-container {
-  position: absolute;
-  width: 100%;
-  height: 10px;
-  right: 0;
-  top: 0;
+
+.refresh-icon-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  background: rgba(var(--accent-color-rgb, 35, 198, 134), 0.1);
 }
-.load-more-title-text {
-  position: sticky;
-  top: 0px;
-  justify-self: center;
-  height: fit-content;
-  width: 100%;
-  background: inherit;
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
 }
-.card-container {
+
+.product-card {
+  background: var(--bento-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
   overflow: hidden;
-  min-width: 120px;
-  width: 18vw;
-  max-width: 180px;
-  height: 14vw;
-  max-height: 160px;
-  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.product-card:hover {
+  border-color: var(--accent-color);
+}
+
+.product-img-wrapper {
+  aspect-ratio: 1/1;
+  position: relative;
+  background: #fff; /* Ensure contrast for products */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-tag {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--accent-color);
+  color: var(--text-color);
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.product-info {
+  padding: 0.75rem;
+}
+
+.product-info h5 {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-info p {
+  margin: 0;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.load-more-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  background: linear-gradient(135deg, rgba(var(--btn-bg-rgb), 0.2), rgba(var(--text-body-rgb), 0.5));
-  box-shadow: 1px 2px 2px rgba(119, 119, 119, 0.3);
-  margin-left: 8px;
-  margin-bottom: 8px;
-  padding: 8px 0px;
-  border-radius: 8px;
-  transition: all 450ms;
+  padding: 2rem 0;
 }
-.card-container:hover {
-  transform: translate(0px, -4px);
-  /* border-bottom: 4px solid rgba(var(--btn-bg-rgb), 0.05); */
-  box-shadow: 1px 6px 6px rgba(119, 119, 119, 0.3);
+
+.load-btn {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 30px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(var(--accent-color-rgb, 35, 198, 134), 0.2);
+  transition: all 0.2s;
 }
-.card-object-image {
-  max-width: 6vw;
-  max-height: 6vw;
-  aspect-ratio: auto;
-  margin-bottom: 4px;
+
+.load-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(var(--accent-color-rgb, 35, 198, 134), 0.3);
 }
-.card-object-name {
-  font-size: 0.8rem;
-  margin: 0;
-  padding: 0px 4px;
-  color: var(--text-body)
+
+.load-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
-.loading-image {
-  animation: App-logo-spin infinite 300ms linear;
-  width: 5vw;
-  margin-right: 4px;
+
+.end-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.text-reset-btn {
+  background: transparent;
+  border: none;
+  color: var(--accent-color);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 0.25rem;
+}
+
+.spin {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

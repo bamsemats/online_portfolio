@@ -1,111 +1,117 @@
-import Die from "./die";
-import { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { nanoid } from "nanoid";
+import Die from "./die";
 import "./tenzies.css";
 
 function generateAllNewDice() {
-  return new Array(10)
-    .fill({
-      id: 0,
-      isHeld: false,
-      num: 0,
-    })
-    .map(() => ({
-      id: nanoid(),
-      isHeld: false,
-      num: Math.ceil(Math.random() * 6),
-    }));
+  return Array.from({ length: 10 }, () => ({
+    id: nanoid(),
+    isHeld: false,
+    num: Math.ceil(Math.random() * 6),
+  }));
 }
 
-function Tenzies() {
-  // randomDieNumber => array of objects. Each object needs:
-  // ID, isHeld, random number. ID should not be linked
-  // directly to index... Then what should it consist of?
-  // isHeld is boolean - clicking the die should invert it
-  // random number is generated only if the isHeld is true
-  //
+export default function Tenzies() {
+  const [dice, setDice] = useState(() => generateAllNewDice());
+  const [tenzies, setTenzies] = useState(false);
+  const [rolls, setRolls] = useState(0);
+  const [timer, setTimer] = useState(0);
+  const timerInterval = useRef(null);
 
-  const [randomDieNumber, setRandomDieNumber] = useState(() =>
-    generateAllNewDice()
-  );
-  // console.log(randomDieNumber);
+  useEffect(() => {
+    const allHeld = dice.every((die) => die.isHeld);
+    const firstValue = dice[0].num;
+    const allSameValue = dice.every((die) => die.num === firstValue);
+
+    if (allHeld && allSameValue) {
+      setTenzies(true);
+      clearInterval(timerInterval.current);
+    }
+  }, [dice]);
+
+  useEffect(() => {
+    if (rolls > 0 && !tenzies && !timerInterval.current) {
+      timerInterval.current = setInterval(() => {
+        setTimer((prev) => prev + 1);
+      }, 1000);
+    }
+    return () => clearInterval(timerInterval.current);
+  }, [rolls, tenzies]);
 
   function rollDice() {
-    setRandomDieNumber((prev) =>
-      prev.map((item) =>
-        item.isHeld === false
-          ? {
-              ...item,
-              num: Math.ceil(Math.random() * 6),
-            }
-          : item
-      )
-    );
-  }
-
-  function newGame() {
-    setRandomDieNumber(generateAllNewDice());
+    if (!tenzies) {
+      setRolls((prev) => prev + 1);
+      setDice((oldDice) =>
+        oldDice.map((die) => {
+          return die.isHeld
+            ? die
+            : { ...die, num: Math.ceil(Math.random() * 6) };
+        })
+      );
+    } else {
+      setTenzies(false);
+      setDice(generateAllNewDice());
+      setRolls(0);
+      setTimer(0);
+      timerInterval.current = null;
+    }
   }
 
   function toggleDie(id) {
-    setRandomDieNumber((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? {
-              ...item,
-              isHeld: !item.isHeld,
-            }
-          : item
-      )
-    );
+    if (!tenzies) {
+      setDice((oldDice) =>
+        oldDice.map((die) => {
+          return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
+        })
+      );
+      if (rolls === 0) setRolls(1);
+    }
   }
 
-  const gameWon =
-    randomDieNumber.every((die) => die.isHeld) &&
-    randomDieNumber.every((die) => die.num === randomDieNumber[0].num);
-
-  // useEffect(() => {
-  //   let completed = true;
-  //   for (const element of randomDieNumber) {
-  //     if (element.isHeld !== randomDieNumber[0].isHeld) {
-  //       completed = false;
-  //       break;
-  //     } if (element.num !== randomDieNumber[0].num) {
-  //       completed = false;
-  //       break;
-  //     }
-  //     } if (completed === true) {
-  //       alert('Completed');
-  //   }
-  // }, [randomDieNumber])
-
-  const diceElements = randomDieNumber.map((num) => (
-    <Die
-      value={num.num}
-      id={num.id}
-      key={num.id}
-      toggle={toggleDie}
-      on={num.isHeld}
-    />
-  ));
-
   return (
-    <div className="app-container tenzies-container bento-tenzies">
-      <span className="title-text">Tenzies</span>
-      <div className="tenzies-wrapper">
-        <div className="tenzies-info-box">
-          <h3>Tenzies Game</h3>
-          <p>Roll until you get ten of the same number.</p>
-          <p>Click a die to hold it.</p>
+    <div className="lab-widget-container bento-tenzies">
+      <div className="widget-header-row">
+        <h4 className="widget-title">Tenzies Game</h4>
+        <div className="stats-row">
+          <div className="stat-pill">Rolls: <span>{rolls}</span></div>
+          <div className="stat-pill">Time: <span>{timer}s</span></div>
         </div>
-        <div className="tenzies">{diceElements}</div>
-        {gameWon && <h3>Game won!</h3>}
-        <button onClick={gameWon ? newGame : rollDice} className="roll-button">
-          {gameWon ? "New Game" : "Roll"}
+      </div>
+
+      <div className="tenzies-board">
+        <div className="dice-grid">
+          {dice.map((die) => (
+            <Die
+              key={die.id}
+              id={die.id}
+              value={die.num}
+              on={die.isHeld}
+              toggle={toggleDie}
+            />
+          ))}
+        </div>
+
+        <AnimatePresence>
+          {tenzies && (
+            <motion.div 
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="win-overlay"
+            >
+              <h3>You Won!</h3>
+              <p>Completed in {rolls} rolls and {timer} seconds.</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <button 
+          className={`roll-btn ${tenzies ? "win" : ""}`} 
+          onClick={rollDice}
+        >
+          {tenzies ? "New Game" : "Roll Dice"}
         </button>
       </div>
     </div>
   );
 }
-
-export default Tenzies;

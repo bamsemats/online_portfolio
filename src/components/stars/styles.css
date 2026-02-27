@@ -1,15 +1,83 @@
-.filled {
-  fill: url(#myGrad);
-}
-.star-container {
+.bento-stars {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 48px;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 2rem;
 }
-.star-div {
+
+.rating-badge {
+  background: var(--accent-color);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.star-rating-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  background: var(--bento-bg);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+}
+
+.stars-wrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.star-box {
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.star-icon {
+  transition: color 0.2s ease, filter 0.2s ease;
+}
+
+.star-icon.inactive {
+  color: var(--border-color);
+}
+
+.star-icon.active {
+  color: #fbbf24; /* Amber-400 */
+  filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.4));
+}
+
+.rating-text-feedback {
+  height: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+.rating-text-feedback .muted {
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.reset-rating-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.reset-rating-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-color);
+  border-color: var(--text-color);
 }
