@@ -99,8 +99,13 @@ const ActivityChart = () => {
           }
         `;
 
-        // Point to our local serverless proxy
-        const response = await fetch("/api/github", {
+        // Use absolute URL when calling from GitHub Pages to Vercel
+        // Replace with your actual Vercel deployment URL
+        const PROXY_URL = process.env.NODE_ENV === 'production' 
+          ? "https://online-portfolio-three-kappa.vercel.app/api/github" 
+          : "/api/github";
+
+        const response = await fetch(PROXY_URL, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
