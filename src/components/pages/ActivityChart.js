@@ -99,8 +99,7 @@ const ActivityChart = () => {
           }
         `;
 
-        // Use absolute URL when calling from GitHub Pages to Vercel
-        // Replace with your actual Vercel deployment URL
+        
         const PROXY_URL = process.env.NODE_ENV === 'production' 
           ? "https://onlineportfolio-psi.vercel.app/api/github" 
           : "/api/github";
