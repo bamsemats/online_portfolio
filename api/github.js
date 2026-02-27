@@ -1,11 +1,21 @@
 export default async function handler(req, res) {
-  const response = await fetch("https://api.github.com/bamsemats/repos", {
-    headers: {
-      Authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}`,
-      Accept: "application/vnd.github+json",
-    },
-  });
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: 'Method Not Allowed' });
+  }
 
-  const data = await response.json();
-  res.status(200).json(data);
+  try {
+    const response = await fetch("https://api.github.com/graphql", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(req.body),
+    });
+
+    const data = await response.json();
+    return res.status(response.status).json(data);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
 }
