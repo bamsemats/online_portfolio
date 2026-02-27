@@ -44,7 +44,7 @@ const skills = [
     { name: "DataGrip", icon: <SiDatagrip />, code: "Database-focused IDE" , slogan: "JetBrains for Data - SQL IDE."},
     { name: "VsCode", icon: <VscVscodeInsiders />, code: "AI-Powered code editor" , slogan: "Lean, fast, and infinitely extensible."},
     { name: "Node.js", icon: <FaNodeJs />, code: "npm run dev", slogan: "JavaScript everywhere, anytime." },
-    { name: "CI/CD", icon: <GoIssueReopened />, code: "build:\n  runs-on: ubuntu-latest\n  steps:\n    - uses: actions/checkout@v5" , slogan: "Automate everything, release with confidence."},
+    { name: "CI/CD", icon: <GoIssueReopened />, code: "build:\n  runs-on: ubuntu-latest\n  steps:\n    uses: actions/checkout@v5" , slogan: "Automate everything, release with confidence."},
     { name: "Google Gemini", icon: <SiGooglegemini />, code: "AI Assistant", slogan: "AI-powered coding assistance." }
   ]}
 ];

@@ -74,34 +74,75 @@ const ActivityChart = () => {
 
     const fetchGithubActivity = async () => {
       try {
-        const response = await fetch('https://api.github.com/users/bamsemats/events/public');
-        if (!response.ok) throw new Error('Failed to fetch');
-        const events = await response.json();
-
-        const pushEvents = events.filter(event => event.type === 'PushEvent');
-        const counts = new Array(6).fill(0);
+        const token = process.env.REACT_APP_GITHUB_TOKEN;
+        console.log(process.env);
+        console.log(token);
         const now = new Date();
-        
-        pushEvents.forEach(event => {
-          const eventDate = new Date(event.created_at);
-          // Calculate how many months ago the event happened
-          const monthDiff = (now.getFullYear() - eventDate.getFullYear()) * 12 + (now.getMonth() - eventDate.getMonth());
-          
-          // Map to 0-5 index (5 is current month, 0 is 5 months ago)
-          const index = 5 - monthDiff;
-          if (index >= 0 && index < 6) {
-            counts[index] += event.payload.size;
+        const sixMonthsAgo = new Date(now);
+        sixMonthsAgo.setMonth(now.getMonth() - 5);
+        sixMonthsAgo.setDate(1);
+
+        const query = `
+          query {
+            user(login: "bamsemats") {
+              contributionsCollection(
+                from: "${sixMonthsAgo.toISOString()}"
+                to: "${now.toISOString()}"
+              ) {
+                contributionCalendar {
+                  weeks {
+                    contributionDays {
+                      date
+                      contributionCount
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `;
+
+        const response = await fetch("https://api.github.com/graphql", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+          body: JSON.stringify({ query }),
+        });
+
+        if (!response.ok) {
+          throw new Error("GitHub GraphQL failed");
+        }
+
+        const result = await response.json();
+
+        const weeks =
+          result.data.user.contributionsCollection.contributionCalendar.weeks;
+
+        const days = weeks.flatMap(week => week.contributionDays);
+
+        const counts = new Array(6).fill(0);
+
+        days.forEach(day => {
+          const date = new Date(day.date);
+
+          const monthDiff =
+            (now.getFullYear() - date.getFullYear()) * 12 +
+            (now.getMonth() - date.getMonth());
+
+          if (monthDiff >= 0 && monthDiff < 6) {
+            const index = 5 - monthDiff;
+            counts[index] += day.contributionCount;
           }
         });
 
-        const finalData = counts.some(c => c > 0) ? counts : [12, 19, 15, 8, 22, 30];
-        setCommitData(finalData);
-        setTotalCommits(finalData.reduce((a, b) => a + b, 0));
+        setCommitData(counts);
+        setTotalCommits(counts.reduce((a, b) => a + b, 0));
         setLoading(false);
+
       } catch (error) {
-        console.error("GitHub API Error:", error);
-        setCommitData([12, 19, 15, 8, 22, 30]); // Graceful fallback
-        setTotalCommits(106);
+        console.error("GitHub GraphQL Error:", error);
         setLoading(false);
       }
     };

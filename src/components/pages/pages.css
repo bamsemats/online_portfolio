@@ -740,7 +740,7 @@
 .skill-card-code pre {
   margin: 0;
   white-space: pre-wrap;
-  word-break: break-all;
+  word-break: normal;
 }
 
 .skill-card-code code {
