@@ -75,8 +75,7 @@ const ActivityChart = () => {
     const fetchGithubActivity = async () => {
       try {
         const token = process.env.REACT_APP_GITHUB_TOKEN;
-        console.log(process.env);
-        console.log(token);
+      
         const now = new Date();
         const sixMonthsAgo = new Date(now);
         sixMonthsAgo.setMonth(now.getMonth() - 5);
