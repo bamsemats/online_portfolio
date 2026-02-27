@@ -74,8 +74,6 @@ const ActivityChart = () => {
 
     const fetchGithubActivity = async () => {
       try {
-        const token = process.env.REACT_APP_GITHUB_TOKEN;
-      
         const now = new Date();
         const sixMonthsAgo = new Date(now);
         sixMonthsAgo.setMonth(now.getMonth() - 5);
@@ -101,7 +99,7 @@ const ActivityChart = () => {
           }
         `;
 
-        const response = await fetch("https://api.github.com/graphql", {
+        const response = await fetch("https://online-portfolio.vercel.app", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

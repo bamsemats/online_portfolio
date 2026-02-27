@@ -1,6 +1,5 @@
 import "./hangman.css";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import Banner from "./Components/banner";
 import Keyboard from "./Components/keyboard";
 import Languages from "./Components/languages";

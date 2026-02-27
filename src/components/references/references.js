@@ -1,8 +1,6 @@
 import React from 'react';
 import "./styles.css";
 import cssLogo from "./assets/w3_css-official.svg";
-import htmlLogo from "./assets/html5-ar21.svg";
-import javaScriptLogo from "./assets/javascript-ar21.svg";
 import reactLogo from "./assets/reactjs-ar21.svg";
 import javaLogo from "./assets/java-ar21.svg";
 import mysqlLogo from "./assets/mysql-ar21.svg";
