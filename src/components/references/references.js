@@ -5,7 +5,8 @@ import reactLogo from "./assets/reactjs-ar21.svg";
 import javaLogo from "./assets/java-ar21.svg";
 import mysqlLogo from "./assets/mysql-ar21.svg";
 import dockerLogo from "./assets/docker-ar21.svg";
-import gitLogo from "./assets/git-scm-ar21.svg"
+import gitLogo from "./assets/git-scm-ar21.svg";
+import pythonLogo from "./assets/python-svgrepo-com.svg";
 import {
   FaNode
 } from "react-icons/fa";
@@ -37,6 +38,9 @@ export default function References() {
           </div>
           <div className="language-logo-container ">
             <img src={javaLogo} className="language-logo" alt="Java"/>
+          </div>
+          <div className="language-logo-container ">
+            <img src={pythonLogo} className="language-logo" alt="Java"/>
           </div>
           <div className="language-logo-container ">
             <img src={mysqlLogo} className="language-logo" alt="MySQL"/>
