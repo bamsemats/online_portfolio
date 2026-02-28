@@ -33,6 +33,8 @@ import httpServerExample3 from "../../assets/example_images/http_server_example_
 // Translator Images
 import translatorExample1 from "../../assets/example_images/translator_example_1.png";
 import translatorExample2 from "../../assets/example_images/translator_example_2.png";
+import translatorExample3 from "../../assets/example_images/translator_example_3.png";
+import translatorExample4 from "../../assets/example_images/translator_example_4.png";
 
 // Pathfinder Images
 import pathfinderExample1 from "../../assets/example_images/pathfinder_example_1.png";
@@ -65,7 +67,7 @@ const featuredProjects = [
     link: "#",
     github: "https://github.com/bamsemats/Dota2Translator",
     size: "medium",
-    images: [translatorExample1, translatorExample2]
+    images: [translatorExample1, translatorExample2, translatorExample3, translatorExample4]
   },
   {
     id: 3,
