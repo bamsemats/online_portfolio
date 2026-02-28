@@ -127,7 +127,7 @@ body {
   opacity: 0.9;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1480px) {
   .title-bar-title {
     display: none;
   }
