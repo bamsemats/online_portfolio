@@ -40,6 +40,12 @@ import pathfinderExample2 from "../../assets/example_images/pathfinder_example_2
 import pathfinderExample3 from "../../assets/example_images/pathfinder_example_3.png";
 import pathfinderExample4 from "../../assets/example_images/pathfinder_example_4.png";
 
+// CV Builder Images
+import cvBuilderExample1 from "../../assets/example_images/cv_builder_example_1.png";
+import cvBuilderExample2 from "../../assets/example_images/cv_builder_example_2.png";
+import cvBuilderExample3 from "../../assets/example_images/cv_builder_example_3.png";
+import cvBuilderExample4 from "../../assets/example_images/cv_builder_example_4.png";
+
 const featuredProjects = [
   {
     id: 1,
@@ -90,6 +96,16 @@ const featuredProjects = [
     github: "https://github.com/bamsemats/pathfinding-visualizer",
     size: "large",
     images: [pathfinderExample1, pathfinderExample2, pathfinderExample3, pathfinderExample4] 
+  },
+    {
+    id: 6,
+    title: "Online CV Architect",
+    description: "CV Architect is a high-performance React application designed to transform raw career data into polished, print-ready PDF resumes  in real-time. A standout technical achievement is the  custom-built heuristic parsing engine, which allows users to instantly import and structure data from plain text and .docx files.",
+    tech: ["React", "Vite", "Mammoth", "Framer Motion", "Lucide"],
+    link: "https://bamsemats.github.io/cv-builder/",
+    github: "https://github.com/bamsemats/cv-builder",
+    size: "medium",
+    images: [cvBuilderExample1, cvBuilderExample2, cvBuilderExample3, cvBuilderExample4] 
   }
 ];
 
