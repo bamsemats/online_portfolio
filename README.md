@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# Mats Rönnqvist | Online Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive personal portfolio and component laboratory built with **React 19**. This project showcases my journey from academia to software development, featuring a collection of full-scale applications and a "Component Lab" for modular UI experiments.
 
-## Available Scripts
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen.svg)](https://bamsemats.github.io/online_portfolio)
+[![GitHub](https://img.shields.io/badge/github-profile-blue.svg)](https://github.com/bamsemats)
 
-In the project directory, you can run:
+## 🚀 Key Features
 
-### `npm start`
+-   **Dynamic Theme Engine:** Supports Light, Dark, Emerald, and Midnight presets, plus a **procedural custom theme generator** that creates unique color palettes on the fly.
+-   **Component Lab:** A dedicated workbench for testing modular UI widgets (Accordian, Hangman, Star Ratings, TreeView, etc.).
+-   **Responsive Design:** Fully optimized for mobile, tablet, and desktop viewing.
+-   **Interactive Data Visualization:** Integration with `Chart.js` to visualize development activity.
+-   **Animated UI:** Smooth transitions and interactions powered by `Framer Motion`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Technical Arsenal
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Frontend
+- **Framework:** React 19 (Hooks, Context API, Router v7)
+- **Styling:** Vanilla CSS (Modern CSS Variables for Theming)
+- **Animation:** Framer Motion
+- **Icons:** React Icons (Lucide, Simple Icons, Font Awesome)
 
-### `npm test`
+### Backend & Logic
+- **Languages:** Java, Python, JavaScript (Node.js)
+- **Databases:** MySQL, MongoDB
+- **Tools:** Docker, Git, Vite, IntelliJ IDEA, VS Code
+- **APIs:** EmailJS, TMDB API, Google Translate API
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📂 Featured Projects
 
-### `npm run build`
+| Project | Tech Stack | Description |
+| :--- | :--- | :--- |
+| **Java Movie DB** | Java, JavaFX, MySQL, Docker | Desktop app for searching and managing a local movie database via TMDB API. |
+| **Online CV Architect** | React, Vite, Mammoth | Real-time PDF resume builder with a custom heuristic parsing engine for .docx files. |
+| **Pathfinder Visualizer** | React, Framer Motion | An interactive visualization of pathfinding algorithms. |
+| **Modern Text Editor** | React, Tiptap | A rich-text editor with a highly configurable typewriting interface. |
+| **Java HTTP Webserver** | Java, Sockets | A custom multi-threaded server implementation exploring HTTP fundamentals. |
+| **Dota 2 Translator** | Python, OCR, Google API | Real-time in-game chat translation using Optical Character Recognition. |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🧪 Component Lab (Workbench)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The **Component Lab** serves as a sandbox for UI/UX experimentation. Each widget is built from scratch to explore specific React patterns:
+- **Hangman:** Word guessing game with state management.
+- **TreeView:** Recursive rendering for file explorer UIs.
+- **Tenzies:** Fast-paced dice matching game.
+- **Image Slider:** Custom-built carousel logic.
+- **Random Color:** Procedural HEX/RGB generator.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📥 Getting Started
 
-### `npm run eject`
+### Prerequisites
+- Node.js (v18 or higher recommended)
+- npm or yarn
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/bamsemats/online_portfolio.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd online_portfolio
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Available Scripts
+- `npm start`: Runs the app in development mode at [http://localhost:3000](http://localhost:3000).
+- `npm run build`: Builds the production-ready app to the `build` folder.
+- `npm run deploy`: Deploys the application to GitHub Pages.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## ✉️ Contact & Links
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **LinkedIn:** [Mats Rönnqvist](https://www.linkedin.com/in/mats-r%C3%B6nnqvist-3504b2381/)
+- **GitHub:** [@bamsemats](https://github.com/bamsemats)
+- **Portfolio:** [https://bamsemats.github.io/online_portfolio](https://bamsemats.github.io/online_portfolio)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+*Built with ❤️ by Mats Rönnqvist*
