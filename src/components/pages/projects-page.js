@@ -52,9 +52,9 @@ const featuredProjects = [
   {
     id: 1,
     title: "Java Movie Database & GUI",
-    description: "A Java-based desktop application for movie information searches and local database storage. Features a custom JavaFX GUI designed for efficient local data handling and relational database interaction. Built as a collaborative school project, it allows the user to search The Movie Database through their API to populate a local database. Movie can then be browsed, added to favorites, and their IMDB page can be visited from a link in the app.",
+    description: "A Java-based desktop application for movie information searches and local database storage. Features a custom JavaFX GUI designed for efficient local data handling and relational database interaction. Built as a collaborative school project, it allows the user to search The Movie Database through their API to populate a local database. Movie can then be browsed, added to favorites, and their IMDB page can be visited from a link in the app. Similar app available for demo on the web (see 'Demo').",
     tech: ["Java", "JavaFX", "MySQL DB", "OOP", "TMDB API", "Docker"],
-    link: "#",
+    link: "https://bamsemats.github.io/movie_db/",
     github: "https://github.com/ithsjava25/project-jpa-project-jpa-grupp-2-d",
     size: "large",
     images: [movie1, movie2, movie3, movie4]
