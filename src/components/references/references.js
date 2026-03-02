@@ -7,6 +7,9 @@ import mysqlLogo from "./assets/mysql-ar21.svg";
 import dockerLogo from "./assets/docker-ar21.svg";
 import gitLogo from "./assets/git-scm-ar21.svg";
 import pythonLogo from "./assets/python-svgrepo-com.svg";
+import htmlLogo from "./assets/html-5-logo-svgrepo-com.svg";
+import javascriptLogo from "./assets/javascript-svgrepo-com.svg";
+import nodeLogo from "./assets/node-js-svgrepo-com.svg";
 import {
   FaNode
 } from "react-icons/fa";
@@ -18,44 +21,33 @@ import {
 } from "react-icons/si";
 
 
+const logos = [
+  { src: htmlLogo, alt: "HTML" },
+  { src: cssLogo, alt: "CSS" },
+  { src: javascriptLogo, alt: "JavaScript" },
+  { src: reactLogo, alt: "React" },
+  { src: javaLogo, alt: "Java" },
+  { src: pythonLogo, alt: "Python" },
+  { src: mysqlLogo, alt: "MySQL" },
+  { src: dockerLogo, alt: "Docker" },
+  { src: gitLogo, alt: "Git" },
+  { src: nodeLogo, alt: "Node" },
+];
+
 export default function References() {
   return (
     <div className="references-wrapper">
-      {/* <span className="title-text">Skills</span> */}
       <div className="references-container">
         <div className="references-div">
-          <div className="language-logo-container ">
-            <TiHtml5 className="language-logo" alt="HTML"/>
-          </div>
-          <div className="language-logo-container ">
-            <img src={cssLogo} className="language-logo" alt="CSS"/>
-          </div>
-          <div className="language-logo-container ">
-            <SiJavascript className="language-logo" alt="JavaScript"/>
-          </div>
-          <div className="language-logo-container ">
-            <img src={reactLogo} className="language-logo" alt="React"/>
-          </div>
-          <div className="language-logo-container ">
-            <img src={javaLogo} className="language-logo" alt="Java"/>
-          </div>
-          <div className="language-logo-container ">
-            <img src={pythonLogo} className="language-logo" alt="Java"/>
-          </div>
-          <div className="language-logo-container ">
-            <img src={mysqlLogo} className="language-logo" alt="MySQL"/>
-          </div>
-          <div className="language-logo-container ">
-            <img src={dockerLogo} className="language-logo" alt="Docker"/>
-          </div>
-          <div className="language-logo-container ">
-            <img src={gitLogo} className="language-logo" alt="Git"/>
-          </div>
-          <div className="language-logo-container ">
-            <FaNode className="language-logo" alt="Node"/>
-          </div>
+          {/* Render three times for safe seamless loop across all screen sizes */}
+          {logos.concat(logos, logos).map((logo, index) => (
+            <div key={index} className="language-logo-container">
+              <img src={logo.src} className="language-logo" alt={logo.alt} />
+            </div>
+          ))}
         </div>
       </div>
     </div>
   );
 }
+
