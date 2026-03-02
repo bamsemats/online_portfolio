@@ -1,7 +1,7 @@
 import "./pages.css";
 import "./media-queries.css";
 import { Link } from "react-router-dom";
-import { BsArrowRight, BsGithub, BsLinkedin, BsPerson, BsCodeSquare, BsChatDots } from "react-icons/bs";
+import { BsArrowRight, BsGithub, BsLinkedin, BsPerson, BsCodeSquare, BsChatDots, BsDownload } from "react-icons/bs";
 import profilePic from "../../profile_picture.jpg";
 import Faux3DCarousel from "./Faux3DCarousel";
 import ActivityChart from "./ActivityChart";
@@ -46,12 +46,21 @@ export default function HomePage() {
             </p>
             <div className="hero-cta">
               <div className="cta-left-column">
-                <Link to="/apps" className="primary-btn">
-                  View My Work <BsArrowRight />
-                </Link>
+                <div className="cta-button-group">
+                  <Link to="/apps" className="primary-btn">
+                    View My Work <BsArrowRight />
+                  </Link>
+                </div>
                 <div className="social-links">
                   <a href="https://github.com/bamsemats" target="_blank" rel="noreferrer"><BsGithub /></a>
                   <a href="https://www.linkedin.com/in/mats-r%C3%B6nnqvist-3504b2381/" target="_blank" rel="noreferrer"><BsLinkedin /></a>
+                  <a 
+                    href={`${process.env.PUBLIC_URL}/CV_Mats_Rönnqvist.pdf`} 
+                    download 
+                    title="Download CV"
+                  >
+                    <BsDownload />
+                  </a>
                 </div>
               </div>
               
