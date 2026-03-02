@@ -10,6 +10,8 @@ import ActivityChart from "./ActivityChart";
 import movieImg from "../../assets/example_images/movie_db_example_1.png";
 import serverImg from "../../assets/example_images/http_server_example_1.png";
 import editorImg from "../../assets/example_images/text_editor_example_1.png";
+import pathfinderImg from "../../assets/example_images/pathfinder_example_3.png";
+import cvArchitectImg from "../../assets/example_images/cv_builder_example_3.png";
 
 const SplitText = ({ text = "" }) => (
   <>
@@ -20,7 +22,7 @@ const SplitText = ({ text = "" }) => (
 )
 
 export default function HomePage() {
-  const previewImages = [movieImg, serverImg, editorImg];
+  const previewImages = [movieImg, serverImg, editorImg, pathfinderImg, cvArchitectImg];
 
   return (
     <div className="home-page">

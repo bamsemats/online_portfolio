@@ -74,7 +74,7 @@ export default function ImageSlider() {
             >
               <img 
                 src={images[currentIndex]?.download_url} 
-                alt={`Slide ${currentIndex}`} 
+                alt={`Slide ${currentIndex + 1} by ${images[currentIndex]?.author}`} 
                 className="slider-img"
               />
               <div className="img-info">
@@ -86,8 +86,8 @@ export default function ImageSlider() {
 
         {!loading && !error && (
           <>
-            <button className="nav-btn prev" onClick={prevSlide}><FiChevronLeft /></button>
-            <button className="nav-btn next" onClick={nextSlide}><FiChevronRight /></button>
+            <button className="nav-btn prev" onClick={prevSlide} aria-label="Previous slide"><FiChevronLeft /></button>
+            <button className="nav-btn next" onClick={nextSlide} aria-label="Next slide"><FiChevronRight /></button>
             
             <div className="slider-indicators">
               {images.map((_, idx) => (
@@ -95,11 +95,14 @@ export default function ImageSlider() {
                   key={idx}
                   className={`indicator ${idx === currentIndex ? "active" : ""}`}
                   onClick={() => setCurrentIndex(idx)}
+                  aria-label={`Go to slide ${idx + 1}`}
+                  aria-current={idx === currentIndex ? "true" : "false"}
                 />
               ))}
             </div>
           </>
         )}
+
       </div>
     </div>
   );

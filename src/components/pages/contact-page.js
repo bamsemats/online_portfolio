@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import "./pages.css";
-import { BsEnvelope, BsLinkedin, BsGithub, BsGeoAlt, BsSend, BsCheckCircle, BsExclamationCircle } from "react-icons/bs";
+import { BsEnvelope, BsLinkedin, BsGithub, BsGeoAlt, BsSend, BsCheckCircle, BsExclamationCircle, BsCopy } from "react-icons/bs";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -10,6 +10,18 @@ export default function ContactPage() {
     message: ''
   });
   const [status, setStatus] = useState('idle'); // idle, sending, success, error
+  const [copied, setCopied] = useState(false);
+
+  const emailAddress = "mats.f.ronnqvist@gmail.com";
+
+  const handleCopy = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigator.clipboard.writeText(emailAddress).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -78,13 +90,23 @@ export default function ContactPage() {
         <div className="contact-info-panel">
           <h2 className="section-title">Reach Out</h2>
           <div className="contact-methods-bento">
-            <a href="mailto:mats.f.ronnqvist@gmail.com" className="contact-item email">
-              <div className="contact-item-icon"><BsEnvelope /></div>
-              <div className="contact-item-text">
-                <span className="label">Email</span>
-                <span className="value">mats.f.ronnqvist@gmail.com</span>
-              </div>
-            </a>
+            <div className="contact-item email-wrapper">
+              <a href={`mailto:${emailAddress}`} className="contact-item email">
+                <div className="contact-item-icon"><BsEnvelope /></div>
+                <div className="contact-item-text">
+                  <span className="label">Email</span>
+                  <span className="value">{emailAddress}</span>
+                </div>
+              </a>
+              <button 
+                className={`copy-btn ${copied ? 'copied' : ''}`} 
+                onClick={handleCopy}
+                title="Copy email to clipboard"
+                aria-label="Copy email address"
+              >
+                {copied ? <BsCheckCircle /> : <BsCopy />}
+              </button>
+            </div>
             <a href="https://www.linkedin.com/in/mats-r%C3%B6nnqvist-3504b2381/" target="_blank" rel="noreferrer" className="contact-item linkedin">
               <div className="contact-item-icon"><BsLinkedin /></div>
               <div className="contact-item-text">
