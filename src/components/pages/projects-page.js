@@ -86,13 +86,13 @@ const featuredProjects = [
   },
   {
     id: 4,
-    title: "Java HTTP Webserver",
-    description: "A custom-built server implementation exploring the fundamentals of the HTTP protocol. Handles concurrent requests via socket programming and serves both static and dynamic content from a local directory.",
-    tech: ["Java", "Sockets", "Networking", "Multithreading"],
-    link: "https://juv25d.coolify.fungover.org/index.html",
-    github: "https://github.com/ithsjava25/project-webserver-juv25d",
+    title: "Code Snippet Library",
+    description: "CV Architect is a high-performance React application designed to transform raw career data into polished, print-ready PDF resumes  in real-time. A standout technical achievement is the  custom-built heuristic parsing engine, which allows users to instantly import and structure data from plain text and .docx files.",
+    tech: ["React", "TypeScript", "PostgreSQL", "Docker", "Lucide", "Render"],
+    link: "https://snippet-lib.onrender.com/dashboard",
+    github: "https://github.com/bamsemats/Java-webserver-labb",
     size: "large",
-    images: [httpServerExample1, httpServerExample2, httpServerExample3] 
+    images: [snippetLibExample1, snippetLibExample2, snippetLibExample3] 
   },
   {
     id: 5,
@@ -114,16 +114,17 @@ const featuredProjects = [
     size: "medium",
     images: [cvBuilderExample1, cvBuilderExample2, cvBuilderExample3, cvBuilderExample4] 
   },
-    {
+  {
     id: 7,
-    title: "Code Snippet Library",
-    description: "CV Architect is a high-performance React application designed to transform raw career data into polished, print-ready PDF resumes  in real-time. A standout technical achievement is the  custom-built heuristic parsing engine, which allows users to instantly import and structure data from plain text and .docx files.",
-    tech: ["React", "TypeScript", "PostgreSQL", "Docker", "Lucide", "Render"],
-    link: "https://snippet-lib.onrender.com/dashboard",
-    github: "https://github.com/bamsemats/Java-webserver-labb",
+    title: "Java HTTP Webserver",
+    description: "A custom-built server implementation exploring the fundamentals of the HTTP protocol. Handles concurrent requests via socket programming and serves both static and dynamic content from a local directory.",
+    tech: ["Java", "Sockets", "Networking", "Multithreading"],
+    link: "https://juv25d.coolify.fungover.org/index.html",
+    github: "https://github.com/ithsjava25/project-webserver-juv25d",
     size: "medium",
-    images: [cvBuilderExample1, cvBuilderExample2, cvBuilderExample3, cvBuilderExample4] 
+    images: [httpServerExample1, httpServerExample2, httpServerExample3] 
   }
+    
 ];
 
 const labComponents = [
