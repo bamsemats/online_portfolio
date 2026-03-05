@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/online_portfolio/static/css/main.d3344a7c.css",
-    "main.js": "/online_portfolio/static/js/main.460d60ef.js",
+    "main.js": "/online_portfolio/static/js/main.d9bf4e7d.js",
     "static/js/453.3c98a1b9.chunk.js": "/online_portfolio/static/js/453.3c98a1b9.chunk.js",
     "static/media/movie_db_example_1.png": "/online_portfolio/static/media/movie_db_example_1.1109baec763fbf67853a.png",
     "static/media/movie_db_example_2.png": "/online_portfolio/static/media/movie_db_example_2.b94ef7d55beb4df25fc2.png",
@@ -15,10 +15,13 @@
     "static/media/cv_builder_example_4.png": "/online_portfolio/static/media/cv_builder_example_4.fff49943f65462ef1df8.png",
     "static/media/translator_example_1.png": "/online_portfolio/static/media/translator_example_1.208adeb46a8e7f50ba10.png",
     "static/media/translator_example_2.png": "/online_portfolio/static/media/translator_example_2.16ede61c4dbe009a6ec1.png",
+    "static/media/snippet_lib_example_1.png": "/online_portfolio/static/media/snippet_lib_example_1.109aa213c2a1399e488a.png",
+    "static/media/snippet_lib_example_3.png": "/online_portfolio/static/media/snippet_lib_example_3.059f89f8ef41b4d9cc2e.png",
     "static/media/profile_picture.jpg": "/online_portfolio/static/media/profile_picture.54133cf6e9d07244045e.jpg",
     "static/media/pathfinder_example_3.png": "/online_portfolio/static/media/pathfinder_example_3.5899135a16acace92ffa.png",
     "static/media/translator_example_3.png": "/online_portfolio/static/media/translator_example_3.1c08ad0abcffe288eda6.png",
     "static/media/text_editor_example_2.png": "/online_portfolio/static/media/text_editor_example_2.99458eddb49dd3e7d527.png",
+    "static/media/snippet_lib_example_2.png": "/online_portfolio/static/media/snippet_lib_example_2.90489c477a6e28eeee12.png",
     "static/media/pathfinder_example_2.png": "/online_portfolio/static/media/pathfinder_example_2.664d3cfbc3dc753c7756.png",
     "static/media/text_editor_example_3.png": "/online_portfolio/static/media/text_editor_example_3.885a58d0fef501f75df6.png",
     "static/media/pathfinder_example_1.png": "/online_portfolio/static/media/pathfinder_example_1.03240be2986dbeeddba7.png",
@@ -38,11 +41,11 @@
     "static/media/w3_css-official.svg": "/online_portfolio/static/media/w3_css-official.abf534f0b1d8057cfaefec85a04f94f0.svg",
     "static/media/html-5-logo-svgrepo-com.svg": "/online_portfolio/static/media/html-5-logo-svgrepo-com.1bcb42f89dafe10af51f151c648a45bc.svg",
     "main.d3344a7c.css.map": "/online_portfolio/static/css/main.d3344a7c.css.map",
-    "main.460d60ef.js.map": "/online_portfolio/static/js/main.460d60ef.js.map",
+    "main.d9bf4e7d.js.map": "/online_portfolio/static/js/main.d9bf4e7d.js.map",
     "453.3c98a1b9.chunk.js.map": "/online_portfolio/static/js/453.3c98a1b9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d3344a7c.css",
-    "static/js/main.460d60ef.js"
+    "static/js/main.d9bf4e7d.js"
   ]
 }
