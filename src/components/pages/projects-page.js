@@ -87,7 +87,7 @@ const featuredProjects = [
   {
     id: 4,
     title: "Code Snippet Library",
-    description: "CV Architect is a high-performance React application designed to transform raw career data into polished, print-ready PDF resumes  in real-time. A standout technical achievement is the  custom-built heuristic parsing engine, which allows users to instantly import and structure data from plain text and .docx files.",
+    description: "SnippetLib is a modern web application designed to help developers build their own library of reusable code. Originally built as a JTE-based monolith, I refactored the entire system into a decoupled architecture featuring a React (TypeScript) frontend and a Spring Boot REST API.",
     tech: ["React", "TypeScript", "PostgreSQL", "Docker", "Lucide", "Render"],
     link: "https://snippet-lib.onrender.com/dashboard",
     github: "https://github.com/bamsemats/Java-webserver-labb",
