@@ -89,7 +89,7 @@ const featuredProjects = [
     title: "Code Snippet Library",
     description: "SnippetLib is a modern web application designed to help developers build their own library of reusable code. Originally built as a JTE-based monolith, I refactored the entire system into a decoupled architecture featuring a React (TypeScript) frontend and a Spring Boot REST API.",
     tech: ["React", "TypeScript", "PostgreSQL", "Docker", "Lucide", "Render"],
-    link: "https://snippet-lib.onrender.com/dashboard",
+    link: "https://snippet-lib.onrender.com/",
     github: "https://github.com/bamsemats/Java-webserver-labb",
     size: "large",
     images: [snippetLibExample1, snippetLibExample2, snippetLibExample3] 
