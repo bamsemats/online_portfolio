@@ -48,6 +48,11 @@ import cvBuilderExample2 from "../../assets/example_images/cv_builder_example_2.
 import cvBuilderExample3 from "../../assets/example_images/cv_builder_example_3.png";
 import cvBuilderExample4 from "../../assets/example_images/cv_builder_example_4.png";
 
+// Snippet Lib Images
+import snippetLibExample1 from "../../assets/example_images/snippet_lib_example_1.png";
+import snippetLibExample2 from "../../assets/example_images/snippet_lib_example_2.png";
+import snippetLibExample3 from "../../assets/example_images/snippet_lib_example_3.png";
+
 const featuredProjects = [
   {
     id: 1,
@@ -106,6 +111,16 @@ const featuredProjects = [
     tech: ["React", "Vite", "Mammoth", "Framer Motion", "Lucide"],
     link: "https://bamsemats.github.io/cv-builder/",
     github: "https://github.com/bamsemats/cv-builder",
+    size: "medium",
+    images: [cvBuilderExample1, cvBuilderExample2, cvBuilderExample3, cvBuilderExample4] 
+  },
+    {
+    id: 7,
+    title: "Code Snippet Library",
+    description: "CV Architect is a high-performance React application designed to transform raw career data into polished, print-ready PDF resumes  in real-time. A standout technical achievement is the  custom-built heuristic parsing engine, which allows users to instantly import and structure data from plain text and .docx files.",
+    tech: ["React", "TypeScript", "PostgreSQL", "Docker", "Lucide", "Render"],
+    link: "https://snippet-lib.onrender.com/dashboard",
+    github: "https://github.com/bamsemats/Java-webserver-labb",
     size: "medium",
     images: [cvBuilderExample1, cvBuilderExample2, cvBuilderExample3, cvBuilderExample4] 
   }
