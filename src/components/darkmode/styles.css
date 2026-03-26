@@ -5,6 +5,13 @@
   gap: 12px;
 }
 
+@media (max-width: 640px) {
+  .darkmode-container{
+    gap: 4px;
+    scale: 0.9;
+  }
+}
+
 /* Theme Exporter Styles */
 .theme-exporter-wrapper {
   position: relative;

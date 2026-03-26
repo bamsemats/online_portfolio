@@ -138,12 +138,19 @@ body {
   position: fixed;
   z-index: -1;
   font-weight: 900;
+  font-size: 6rem;
   color: var(--token-color);
 }
 /* Static Background Tokens - Handled by Framer Motion */
 .static-bg .token-1 {
   pointer-events: none;
   user-select: none;
+}
+
+@media (max-width: 800px) {
+  .static-bg .token-1 {
+    font-size: 3rem;
+  }
 }
 
 [data-theme='dark'] .static-bg .token-1 {
