@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/online_portfolio/static/css/main.d8d18fe1.css",
-    "main.js": "/online_portfolio/static/js/main.b1c8a739.js",
+    "main.css": "/online_portfolio/static/css/main.56c448f9.css",
+    "main.js": "/online_portfolio/static/js/main.1db7efa8.js",
     "static/js/453.3c98a1b9.chunk.js": "/online_portfolio/static/js/453.3c98a1b9.chunk.js",
     "static/media/movie_db_example_1.png": "/online_portfolio/static/media/movie_db_example_1.1109baec763fbf67853a.png",
     "static/media/movie_db_example_2.png": "/online_portfolio/static/media/movie_db_example_2.b94ef7d55beb4df25fc2.png",
@@ -17,14 +17,18 @@
     "static/media/translator_example_2.png": "/online_portfolio/static/media/translator_example_2.16ede61c4dbe009a6ec1.png",
     "static/media/snippet_lib_example_1.png": "/online_portfolio/static/media/snippet_lib_example_1.109aa213c2a1399e488a.png",
     "static/media/snippet_lib_example_3.png": "/online_portfolio/static/media/snippet_lib_example_3.059f89f8ef41b4d9cc2e.png",
+    "static/media/adaptachat_example_3.png": "/online_portfolio/static/media/adaptachat_example_3.40fbac271391421b23b3.png",
     "static/media/profile_picture.jpg": "/online_portfolio/static/media/profile_picture.54133cf6e9d07244045e.jpg",
     "static/media/pathfinder_example_3.png": "/online_portfolio/static/media/pathfinder_example_3.5899135a16acace92ffa.png",
+    "static/media/adaptachat_example_2.png": "/online_portfolio/static/media/adaptachat_example_2.f08385fc15260e0cb488.png",
     "static/media/translator_example_3.png": "/online_portfolio/static/media/translator_example_3.1c08ad0abcffe288eda6.png",
+    "static/media/adaptachat_example_4.png": "/online_portfolio/static/media/adaptachat_example_4.95748b6a02b824f5ff85.png",
     "static/media/text_editor_example_2.png": "/online_portfolio/static/media/text_editor_example_2.99458eddb49dd3e7d527.png",
     "static/media/snippet_lib_example_2.png": "/online_portfolio/static/media/snippet_lib_example_2.90489c477a6e28eeee12.png",
     "static/media/pathfinder_example_2.png": "/online_portfolio/static/media/pathfinder_example_2.664d3cfbc3dc753c7756.png",
     "static/media/text_editor_example_3.png": "/online_portfolio/static/media/text_editor_example_3.885a58d0fef501f75df6.png",
     "static/media/pathfinder_example_1.png": "/online_portfolio/static/media/pathfinder_example_1.03240be2986dbeeddba7.png",
+    "static/media/adaptachat_example_1.png": "/online_portfolio/static/media/adaptachat_example_1.adbf82b3843632090e6e.png",
     "static/media/pathfinder_example_4.png": "/online_portfolio/static/media/pathfinder_example_4.4f4e1e7f397251904956.png",
     "static/media/text_editor_example_1.png": "/online_portfolio/static/media/text_editor_example_1.e5c79be773c0dd2b3931.png",
     "static/media/translator_example_4.png": "/online_portfolio/static/media/translator_example_4.4149a507fd9551c3a34c.png",
@@ -32,6 +36,7 @@
     "static/media/node-js-svgrepo-com.svg": "/online_portfolio/static/media/node-js-svgrepo-com.4d8b9a0c5a604b6b68d3750273f913d6.svg",
     "static/media/mysql-ar21.svg": "/online_portfolio/static/media/mysql-ar21.3737d1ef555157e6069bbc4a693b96dc.svg",
     "static/media/docker-ar21.svg": "/online_portfolio/static/media/docker-ar21.aa1f2a11381751730f91381b4a72d993.svg",
+    "static/media/kubernetes-svgrepo-com.svg": "/online_portfolio/static/media/kubernetes-svgrepo-com.e8795fa38e7f98b0f2d4fdbff54f9560.svg",
     "static/media/reactjs-ar21.svg": "/online_portfolio/static/media/reactjs-ar21.cfbc1fb0cceb442c7774b91230a51de0.svg",
     "static/media/java-ar21.svg": "/online_portfolio/static/media/java-ar21.11c5349144180e3f141e38d0848f8384.svg",
     "static/media/python-svgrepo-com.svg": "/online_portfolio/static/media/python-svgrepo-com.4298525c028749eb4fa154f8f5bd1931.svg",
@@ -40,12 +45,13 @@
     "static/media/javascript-svgrepo-com.svg": "/online_portfolio/static/media/javascript-svgrepo-com.0866c81b3b841c647e23b8a5d991c312.svg",
     "static/media/w3_css-official.svg": "/online_portfolio/static/media/w3_css-official.abf534f0b1d8057cfaefec85a04f94f0.svg",
     "static/media/html-5-logo-svgrepo-com.svg": "/online_portfolio/static/media/html-5-logo-svgrepo-com.1bcb42f89dafe10af51f151c648a45bc.svg",
-    "main.d8d18fe1.css.map": "/online_portfolio/static/css/main.d8d18fe1.css.map",
-    "main.b1c8a739.js.map": "/online_portfolio/static/js/main.b1c8a739.js.map",
+    "static/media/kotlin-svgrepo-com.svg": "/online_portfolio/static/media/kotlin-svgrepo-com.cb80d6a372f57f99c0195fe8f98b8c49.svg",
+    "main.56c448f9.css.map": "/online_portfolio/static/css/main.56c448f9.css.map",
+    "main.1db7efa8.js.map": "/online_portfolio/static/js/main.1db7efa8.js.map",
     "453.3c98a1b9.chunk.js.map": "/online_portfolio/static/js/453.3c98a1b9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d8d18fe1.css",
-    "static/js/main.b1c8a739.js"
+    "static/css/main.56c448f9.css",
+    "static/js/main.1db7efa8.js"
   ]
 }
