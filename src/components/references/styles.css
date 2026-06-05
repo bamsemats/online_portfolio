@@ -33,7 +33,7 @@
   flex-shrink: 0; 
 }
 /* Hide the second and third set of logos on desktop */
-.language-logo-container:nth-child(n+11) {
+.language-logo-container:nth-child(n+13) {
   display: none;
 }
 .language-logo {

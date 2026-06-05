@@ -53,6 +53,12 @@ import snippetLibExample1 from "../../assets/example_images/snippet_lib_example_
 import snippetLibExample2 from "../../assets/example_images/snippet_lib_example_2.png";
 import snippetLibExample3 from "../../assets/example_images/snippet_lib_example_3.png";
 
+// Adapta Chat
+import AdaptaChatExample1 from "../../assets/example_images/adaptachat_example_1.png";
+import AdaptaChatExample2 from "../../assets/example_images/adaptachat_example_2.png";
+import AdaptaChatExample3 from "../../assets/example_images/adaptachat_example_3.png";
+import AdaptaChatExample4 from "../../assets/example_images/adaptachat_example_4.png";
+
 const featuredProjects = [
   {
     id: 1,
@@ -123,6 +129,16 @@ const featuredProjects = [
     github: "https://github.com/ithsjava25/project-webserver-juv25d",
     size: "medium",
     images: [httpServerExample1, httpServerExample2, httpServerExample3] 
+  },
+  {
+    id: 8,
+    title: "Microservice chat application",
+    description: "AdaptaChat is a high-performance, reactive microservices platform built with Spring Boot, Kotlin, and React, featuring a Zero-Trust security architecture secured by mTLS-encrypted gRPC and RabbitMQ event streaming. It utilizes an innovative 'Prism Aura' design system that leverages real-time AI sentiment analysis to dynamically modulate CSS design tokens, delivering a fluid and context-aware communication experience.",
+    tech: ["Kotlin", "Microservices", "AI", "API Gateway", "Kubernetes", "Docker"],
+    link: "#",
+    github: "https://github.com/bamsemats/ai-microservices-labb",
+    size: "large",
+    images: [AdaptaChatExample1, AdaptaChatExample2, AdaptaChatExample3, AdaptaChatExample4] 
   }
     
 ];

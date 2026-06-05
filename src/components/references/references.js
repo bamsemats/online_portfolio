@@ -10,6 +10,8 @@ import pythonLogo from "./assets/python-svgrepo-com.svg";
 import htmlLogo from "./assets/html-5-logo-svgrepo-com.svg";
 import javascriptLogo from "./assets/javascript-svgrepo-com.svg";
 import nodeLogo from "./assets/node-js-svgrepo-com.svg";
+import kubernetesLogo from "./assets/kubernetes-svgrepo-com.svg";
+import kotlinLogo from "./assets/kotlin-svgrepo-com.svg";
 import {
   FaNode
 } from "react-icons/fa";
@@ -32,6 +34,8 @@ const logos = [
   { src: dockerLogo, alt: "Docker" },
   { src: gitLogo, alt: "Git" },
   { src: nodeLogo, alt: "Node" },
+  { src: kotlinLogo, alt: "Kotlin" },
+  { src: kubernetesLogo, alt: "Kubernetes" }
 ];
 
 export default function References() {

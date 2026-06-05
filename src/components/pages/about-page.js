@@ -3,7 +3,7 @@ import "./pages.css";
 import {
   SiReact, SiJavascript, SiHtml5, SiCss3,
   SiMongodb,
-  SiGit, SiDocker, SiIntellijidea, SiGooglegemini, SiVite, SiDatagrip
+  SiGit, SiDocker, SiIntellijidea, SiGooglegemini, SiVite, SiDatagrip, SiKubernetes, SiKotlin
 } from "react-icons/si";
 
 import {
@@ -34,7 +34,8 @@ const skills = [
     { name: "Java", icon: <FaJava />, code: "public class Main {\n  public static void main(String[] args) {\n    System.out.println(\"Hello World\");\n  }\n}" },
     { name: "MySQL", icon: <GrMysql />, code: "SELECT u.name, p.title \nFROM users u \nJOIN posts p ON u.id = p.author_id;" },
     { name: "MongoDB", icon: <SiMongodb />, code: "db.collection.aggregate([\n  { $match: { active: true } },\n  { $group: { _id: '$cat', total: { $sum: 1 } } }\n]);" },
-    { name: "Python", icon: <DiPython />, code: "def get_fib(n):\n    a, b = 0, 1\n    for _ in range(n):\n        yield a\n        a, b = b, a + b" }
+    { name: "Python", icon: <DiPython />, code: "def get_fib(n):\n    a, b = 0, 1\n    for _ in range(n):\n        yield a\n        a, b = b, a + b" },
+    { name: "Kotlin", icon: <SiKotlin />, code: "fun modulateAura(theme: String, intensity: Double) =\n if (intensity > 0.7) 'luminous-$theme' else theme" }
   ]},
   { category: "Tools", icons: [
     { name: "Git", icon: <SiGit />, code: "git commit -m 'feat: update';" , slogan: "Version control for the modern age."},
@@ -45,7 +46,8 @@ const skills = [
     { name: "VsCode", icon: <VscVscodeInsiders />, code: "AI-Powered code editor" , slogan: "Lean, fast, and infinitely extensible."},
     { name: "Node.js", icon: <FaNodeJs />, code: "npm run dev", slogan: "JavaScript everywhere, anytime." },
     { name: "CI/CD", icon: <GoIssueReopened />, code: "build:\n  runs-on: ubuntu-latest\n  steps:\n    uses: actions/checkout@v5" , slogan: "Automate everything, release with confidence."},
-    { name: "Google Gemini", icon: <SiGooglegemini />, code: "AI Assistant", slogan: "AI-powered coding assistance." }
+    { name: "Google Gemini", icon: <SiGooglegemini />, code: "AI Assistant", slogan: "AI-powered coding assistance." },
+    { name: "Kubernetes", icon: <SiKubernetes />, code: "Scaleable Deployment", slogan: "Production-Grade Container Orchestration" }
   ]}
 ];
 
